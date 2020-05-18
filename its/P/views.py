@@ -115,6 +115,11 @@ class AdminSignUpView(CreateView):
 
         return redirect('/P/login_page/')
 
+
+
+
+
+
 class HRSignUpView(CreateView):
     model = User
     form_class = HRSignUpForm

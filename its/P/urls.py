@@ -14,4 +14,6 @@ urlpatterns = [
     path('EMPL/', views.EMPLandingPage, name='EMPL'),
     path('logout/', views.logout1, name='LOG'),
 
+
+
 ]
