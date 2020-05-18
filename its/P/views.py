@@ -112,9 +112,7 @@ class AdminSignUpView(CreateView):
         return super().get_context_data(**kwargs)
     def form_valid(self, form):
         user = form.save()
-        logout(request)
-        login(request,user)
-        logout(request)
+
         return redirect('/P/login_page/')
 
 class HRSignUpView(CreateView):
