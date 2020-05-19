@@ -26,6 +26,6 @@ while not done:
     else:
         color = (255,100,0)
     pygame.draw.polygon(screen,color,[(x+1,y+2),(x+3,y+4),(x+50,y+60),(x+30,y+30),(x+34,y+15),(x+12,y+32)])
-    \
+
     screen.blit(text,(320-text.get_width()//2,240-text.get_height()//2))
     pygame.display.flip()
