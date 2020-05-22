@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="65f98e31-8d13-41ea-a34e-7f6c33c8a8be" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SubRoutine Diagrams/Notice Board.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/SubRoutine Diagrams/Notice Board.pptx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,9 +46,9 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="421" y="103" key="FileChooserDialogImpl" timestamp="1589859568444">
+    <state x="421" y="103" key="FileChooserDialogImpl" timestamp="1590128973582">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="421" y="103" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1589859568444" />
+    <state x="421" y="103" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1590128973582" />
   </component>
 </project>
