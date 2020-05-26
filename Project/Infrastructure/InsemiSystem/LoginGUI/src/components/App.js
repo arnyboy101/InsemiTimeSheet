@@ -37,8 +37,8 @@ class App extends Component {
           return (
             <li key = {contact.id}>
                         Name : {contact.first_name} {contact.last_name} 
-                        <br></br> Email : {contact.email} <br></br> 
-                        Employee Id: {contact.employeeId} <br></br> 
+                        <br/> Email : {contact.email} <br/> 
+                        Employee Id: {contact.employeeId} <br/> 
                         Account Creation Date: {contact.created_at}
             </li>  
           );
