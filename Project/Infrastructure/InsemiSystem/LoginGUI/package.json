@@ -1,12 +1,11 @@
 {
-  "name": "loginGUI",
+  "name": "LoginGUI",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "webpack --mode development ./src/index.js --output ./static/loginGUI/main.js",
-    "build": "webpack --mode production ./src/index.js --output ./static/loginGUI/main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode production ./src/index.js --output ./static/loginGUI/main.js"    
   },
   "keywords": [],
   "author": "",
