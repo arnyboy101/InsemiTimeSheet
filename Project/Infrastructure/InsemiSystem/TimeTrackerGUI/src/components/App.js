@@ -33,9 +33,10 @@ class App extends Component {
 
    render() {
     return (
-        <div>
-            <p>Enter Your React Code here</p>
-        </div>
+      <li key = {contact.id}>
+          Project : {contact.Project} <br/>
+          Additional Comments : {contact.AddComments}
+      </li> 
     );
   }
 }
