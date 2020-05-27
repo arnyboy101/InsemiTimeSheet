@@ -58,10 +58,10 @@ For this you need to go to your app folder and create a `serializers.py`
 
 ```
 from rest_framework import serializers
-from .models import Lead
+from .models import *
 
 class ______Serializer(serizalizers.ModelSerializer):
-    class meta:
+    class Meta:
         model = ______
         fields = ('the names of your various model fields')
 
