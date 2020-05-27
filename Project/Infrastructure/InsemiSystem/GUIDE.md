@@ -123,8 +123,8 @@ npm i webpack webpack-cli --save-dev
 Now in your directories you'll find a file called `package.json`, add these two lines below the `"scripts":{` part of the file.
 
 ```
-"dev": "webpack --mode development ./src/index.js --output ./static/frontend/main.js",
-  "build": "webpack --mode production ./src/index.js --output ./static/frontend/main.js"
+"dev": "webpack --mode development ./src/index.js --output ./static/_____GUI/main.js",
+  "build": "webpack --mode production ./src/index.js --output ./static/_____GUI/main.js"
 
 ```
 Save the file (You should have turned on AutoSave in VS Code by now anyways).
@@ -243,14 +243,20 @@ class App extends Component {
       });
   }
 
-  render() {
-    # Insert JavaScript Code to Perform Appropriate Render
+   render() {
+    return (
+        <div>
+            <p>Enter Your React Code here</p>
+        </div>
+    );
+  }
 }
 
 export default App;
 
 const container = document.getElementById("app");
 render(<App />, container);
+
 ```
 
 Now create a file called `index.js` in the directory right above this a.k.a `src`
