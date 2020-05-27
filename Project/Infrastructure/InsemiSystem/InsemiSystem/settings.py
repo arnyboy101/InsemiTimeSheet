@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'LoginGUI.apps.LoginguiConfig',
     'HomeScreenGUI',
     'TimeTracker',
+    'TimeTrackerGUI',
     
+
     
 ]
 

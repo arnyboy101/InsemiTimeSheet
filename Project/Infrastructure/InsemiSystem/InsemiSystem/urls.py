@@ -22,7 +22,9 @@ urlpatterns = [
     path('loginresults/',include('LoginGUI.urls')),
     path('home/', include('HomeScreenGUI.urls')),
     path('timetracker/',include('TimeTracker.urls')),
+    path('ttgui/',include('TimeTrackerGUI.urls')),
     
+
     
 
 ]
