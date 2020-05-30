@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'TimeTracker',
     'TimeTrackerGUI',
     'ExportGUI',
+    'CalendarGUI',
 
     
 ]
