@@ -23,7 +23,8 @@ urlpatterns = [
     path('home/', include('HomeScreenGUI.urls')),
     path('timetracker/',include('TimeTracker.urls')),
     path('ttgui/',include('TimeTrackerGUI.urls')),
-    path('export/',include('ExportGUI.urls'))
+    path('export/',include('ExportGUI.urls')),
+    path('calendar/',include('Calendar.urls')),
     
 
     
