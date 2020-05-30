@@ -24,7 +24,7 @@ urlpatterns = [
     path('timetracker/',include('TimeTracker.urls')),
     path('ttgui/',include('TimeTrackerGUI.urls')),
     path('export/',include('ExportGUI.urls')),
-    path('calendar/',include('Calendar.urls')),
+    path('calendar/',include('CalendarGUI.urls')),
     
 
     
