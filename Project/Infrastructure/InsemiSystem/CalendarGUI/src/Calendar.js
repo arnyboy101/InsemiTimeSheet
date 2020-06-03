@@ -61,7 +61,7 @@ class Calendar extends Component{
 }
 
 renderDays() {
-  const dateFormat = "dddd";
+  const dateFormat = "EEEE";
   const days = [];
 
   let startDate = startOfWeek(this.state.current_Month);
