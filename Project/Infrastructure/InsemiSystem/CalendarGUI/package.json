@@ -25,6 +25,7 @@
     "wepack-cli": "0.0.1-security"
   },
   "dependencies": {
+    "date-fns": "^2.14.0",
     "react-calendar": "^3.1.0",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
