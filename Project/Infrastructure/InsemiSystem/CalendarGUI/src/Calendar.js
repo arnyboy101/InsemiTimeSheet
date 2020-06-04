@@ -2,6 +2,7 @@ import React, { useState, Component } from 'react';
 import 'date-fns';
 import  format  from "date-fns/format";
 import "./App.css";
+import "./Panel";
 import startOfWeek from "date-fns/startOfWeek"
 import addDays from 'date-fns/addDays';
 import endOfWeek from 'date-fns/endOfWeek';
@@ -12,6 +13,7 @@ import subMonths from 'date-fns/subMonths';
 import addMonths from 'date-fns/addMonths';
 import isSameDay from 'date-fns/isSameDay';
 import toDate from 'date-fns/toDate';
+import BasicPane from './Panel';
 
 function MyApp() {
  
@@ -104,6 +106,7 @@ renderCells() {
           }`}
           key={day}
           onClick={() => this.onDateClick(toDate(cloneDay))}
+          
         >
           <span className="number">{formattedDate}</span>
           <span className="bg">{formattedDate}</span>
@@ -121,10 +124,18 @@ renderCells() {
   return <div className="body">{rows}</div>;
 }
 
+renderPane()
+{
+  return <div className="pane"><BasicPane /></div>
+}
+
  onDateClick = day => {
   this.setState({
     selected_Date: day
   });
+  
+  
+  
 };
 
 nextMonth = () => {
@@ -145,6 +156,7 @@ render() {
       {this.renderHeader()}
       {this.renderDays()}
       {this.renderCells()}
+      {this.renderPane()}
     </div>
   );
 }
