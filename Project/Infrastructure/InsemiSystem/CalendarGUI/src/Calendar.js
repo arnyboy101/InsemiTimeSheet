@@ -2,7 +2,6 @@ import React, { useState, Component } from 'react';
 import 'date-fns';
 import  format  from "date-fns/format";
 import "./App.css";
-import "./Panel";
 import startOfWeek from "date-fns/startOfWeek"
 import addDays from 'date-fns/addDays';
 import endOfWeek from 'date-fns/endOfWeek';
@@ -13,7 +12,8 @@ import subMonths from 'date-fns/subMonths';
 import addMonths from 'date-fns/addMonths';
 import isSameDay from 'date-fns/isSameDay';
 import toDate from 'date-fns/toDate';
-import BasicPane from './Panel';
+import {Panel} from 'rsuite';
+import 'rsuite/dist/styles/rsuite-default.css';
 
 function MyApp() {
  
@@ -126,7 +126,13 @@ renderCells() {
 
 renderPane()
 {
-  return <div className="pane"><BasicPane /></div>
+  const dateFormat = "dd/MM/yyyy";
+  const formattedDate = format(this.state.selected_Date, dateFormat);
+  return(
+    <Panel header="Activity Report" collapsible shaded>
+     <p>{formattedDate}</p>
+    </Panel>);
+    
 }
 
  onDateClick = day => {
