@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class HomeScreenGUIConfig(AppConfig):
+class HomescreenguiConfig(AppConfig):
     name = 'HomeScreenGUI'

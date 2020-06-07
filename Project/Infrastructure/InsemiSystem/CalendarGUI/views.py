@@ -2,6 +2,6 @@ from django.shortcuts import render
 
 # Create your views here.
 
-def Calendar(request):
+def calendar(request):
     return render (request,'CalendarGUI/calendar.html')
 

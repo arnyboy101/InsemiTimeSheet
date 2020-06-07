@@ -35,7 +35,7 @@ class App extends Component {
     return (
       <li key = {contact.id}>
           Project : {contact.Project} <br/>
-          Additional Comments : {contact.Add_Comments}
+          Additional Comments : {contact.AddComments}
       </li> 
     );
   }
