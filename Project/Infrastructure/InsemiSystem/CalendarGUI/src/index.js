@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import MyApp from './Calendar';
+import Calendar from './Calendar';
 import * as serviceWorker from './serviceWorker';
 import "./App.css"
 import { createStore, applyMiddleware } from 'redux';
@@ -18,7 +18,7 @@ function reducer(state, action) {
 const store = createStore(reducer, applyMiddleware(thunk));
 const App = () => (
 <div>
-<MyApp />
+<Calendar />
 
 </div>
 );
