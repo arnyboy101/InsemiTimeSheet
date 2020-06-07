@@ -34,8 +34,8 @@ class App extends Component {
    render() {
     return (
       <li key = {contact.id}>
-          Project : {contact.Project} <br/>
-          Additional Comments : {contact.Add_Comments}
+          Project : {contact.projects} <br/>
+          Additional Comments : {contact.add_comments}
       </li> 
     );
   }
