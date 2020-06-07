@@ -5,6 +5,6 @@ class LoginDetails (models.Model):
     first_name = models.CharField(max_length=256)
     last_name = models.CharField(max_length=256)
     email=models.EmailField()
-    employeeId = models.IntegerField()
+    employee_Id = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     

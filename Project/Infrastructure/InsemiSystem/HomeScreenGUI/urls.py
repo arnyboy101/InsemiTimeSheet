@@ -3,6 +3,6 @@ from .views import *
 from . import views
 
 urlpatterns = [
-    path('index/',views.index)
+    path('index/',views.DefaultPage)
 ]
 
