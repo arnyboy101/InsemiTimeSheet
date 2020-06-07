@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class ExportguiConfig(AppConfig):
+class ExportGUIConfig(AppConfig):
     name = 'ExportGUI'

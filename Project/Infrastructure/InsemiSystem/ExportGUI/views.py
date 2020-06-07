@@ -1,5 +1,5 @@
 from django.shortcuts import render
 
 # Create your views here.
-def index(request):
+def DefaultPage(request):
     return render(request, 'ExportGUI/index.html')
