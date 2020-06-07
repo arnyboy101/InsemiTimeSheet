@@ -1,9 +1,9 @@
 from rest_framework import serializers
-from .models import Activity
+from .models import *
 
 class ActivitySerializer(serializers.ModelSerializer):
     class Meta:
-        models = Activity
-        fields = ('id','projects','add_comments')
+        model = Activity
+        fields = ('id','Project','AddComments')
 
 
