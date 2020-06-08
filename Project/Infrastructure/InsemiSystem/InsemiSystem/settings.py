@@ -85,14 +85,19 @@ WSGI_APPLICATION = 'InsemiSystem.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'TimeSheetDB',
-        'USER': 'admin',
-        'PASSWORD':'admin123',
-        'HOST': 'insemidb.cvyzrmqcspo0.ap-south-1.rds.amazonaws.com',
-        'PORT': '3306',
-    }
+
+    
+    
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'TimeSheetDB',
+            'USER': 'admin',
+            'PASSWORD': 'admin123',
+            'HOST': 'insemidb.cvyzrmqcspo0.ap-south-1.rds.amazonaws.com',
+            'PORT': '3306'
+        }
+    
+
 }
 
 
