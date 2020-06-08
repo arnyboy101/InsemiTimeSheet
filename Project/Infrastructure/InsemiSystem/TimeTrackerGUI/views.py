@@ -1,6 +1,8 @@
 from django.shortcuts import render
 
 # Create your views here.
-def index(request):
-    return render(request, 'TimeTrackerGUI/index.html')
+
+
+def stopwatch(request):
+    return render(request, 'TimeTrackerGUI/mainscreen.html')
 
