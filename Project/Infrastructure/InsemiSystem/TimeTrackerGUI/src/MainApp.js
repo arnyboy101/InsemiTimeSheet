@@ -9,7 +9,7 @@ class StopWatch extends Component{
     seconds={0}
     minutes={0}
     hours={0}
-    limit="23:59:59"
+    limit="00:00:10"
     onChange={({ hours, minutes, seconds }) => {
       // do something
     }}
