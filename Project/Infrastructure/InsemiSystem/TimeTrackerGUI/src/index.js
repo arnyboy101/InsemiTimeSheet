@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import DropDown from './DropDownList';
 import Stopwatch from "./Stopwatch";
 import "./Stopwatch.css";
 import { createStore, applyMiddleware } from 'redux';
@@ -18,7 +18,7 @@ const store = createStore(reducer, applyMiddleware(thunk));
 const App = () => (
 <div>
 <Stopwatch />
-
+<DropDown />
 </div>
 );
 
