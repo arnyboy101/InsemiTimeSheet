@@ -1,23 +1,25 @@
 
 .body {
-    font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight',
-                 'Helvetica Neueu', Helvetica, Arial, sans-serif;
+    font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     margin: 0;
     background: linear-gradient(to bottom right,#1a8fff,#0dd4e2);
   }
 
   
-  .stopwatch { text-align: center;
-    background: linear-gradient(to bottom right,#1a8fff,#0dd4e2); }
+  .stopwatch { 
+    text-align: center;
+    background: linear-gradient(to bottom right,#1a8fff,#0dd4e2); 
+
+}
 
 
   .stopwatch-timer {
     font-size: 76px;
-    font-weight: 100;
-    line-height: 160px;
+
     
     margin: 0;
-    
+    font-weight: 700;
+    line-height: 1;
     border: linear-gradient(to bottom right,#1a8fff,#0dd4e2);
     border-width: 1px 0;
   

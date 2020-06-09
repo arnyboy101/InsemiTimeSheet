@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Stopwatch from "./Stopwatch";
-import "./Stopwatch.css";
+import HomeScreen from "./Homescreen";
+
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
@@ -12,19 +12,17 @@ function reducer(state, action) {
   return state;
   }
   
-
-
-const store = createStore(reducer, applyMiddleware(thunk));
 const App = () => (
 <div>
-<Stopwatch />
-
-</div>
-);
+    <HomeScreen />
+    
+    </div>
+    );
+const store = createStore(reducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('app')
+  document.getElementById('homescreen')
 );
