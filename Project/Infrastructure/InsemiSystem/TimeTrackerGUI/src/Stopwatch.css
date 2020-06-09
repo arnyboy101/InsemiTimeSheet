@@ -10,7 +10,7 @@
   .stopwatch { text-align: center;
     background: linear-gradient(to bottom right,#1a8fff,#0dd4e2); }
 
-    
+
   .stopwatch-timer {
     font-size: 76px;
     font-weight: 100;
@@ -18,9 +18,9 @@
     
     margin: 0;
     
-    border: solid #cecfd0;
+    border: linear-gradient(to bottom right,#1a8fff,#0dd4e2);
     border-width: 1px 0;
-    background: linear-gradient(to bottom right,#1a8fff,#0dd4e2);
+  
   }
   
 
