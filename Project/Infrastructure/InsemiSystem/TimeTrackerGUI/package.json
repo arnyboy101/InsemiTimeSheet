@@ -26,7 +26,6 @@
   "dependencies": {
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0",
-    "rsuite": "^4.7.3"
+    "redux-thunk": "^2.3.0"
   }
 }
