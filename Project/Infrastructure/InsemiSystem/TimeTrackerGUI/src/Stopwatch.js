@@ -1,6 +1,6 @@
 import React from 'react';
 const formattedSeconds = (sec) => 
-  ('0'+Math.floor(sec/3600)) +
+  ('0'+Math.floor(sec/3600)).slice(-2) +
   ':' +
   ('0'+ Math.floor(sec/60)%60 ).slice(-2) +
   ':' +
