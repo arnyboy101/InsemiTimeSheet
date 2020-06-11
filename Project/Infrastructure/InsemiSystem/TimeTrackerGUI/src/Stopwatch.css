@@ -8,6 +8,7 @@
 
   
   .stopwatch { text-align: center;
+    font-family: "Lucida Console", Courier, monospace;
     background: linear-gradient(to bottom right,#1a8fff,#0dd4e2); }
 
 
@@ -26,26 +27,28 @@
 
   .btn {
     font-family: inherit;
-    font-size: 20px;
+    font-size: 36px;
     
     display: inline-block;
     
-    width: 72px;
-    height: 72px;
+    width: 144px;
+    height: 144px;
     margin: 24px;
     padding: 0;
     
     cursor: pointer;
     letter-spacing: 1px;
     
-    border: 0;
+    border: 30px;
+    border-color: aquamarine;
     border-radius: 50%;
     outline: none;
-    background: white;
+    background:linear-gradient(to bottom right,#1a8fff,#0dd4e2);
   }
   
   
   
-  .start-btn { color: #4bd761 }
-  .stop-btn  { color: #fd3d2a }
+  .start-btn { color:white }
+  .stop-btn  { color: black }
+  .reset-btn {color: yellow}
   
