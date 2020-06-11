@@ -1,57 +1,65 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { start, stop, reset, tick } from './actions';
-
+const formattedSeconds = (sec) => 
+  ('0'+Math.floor(sec/3600)).slice(-2) +
+  ':' +
+  ('0'+ Math.floor(sec/60)%60 ).slice(-2) +
+  ':' +
+  ('0' + sec % 60).slice(-2)
   
-  let interval = null;
+  
 
 class Stopwatch extends React.Component {
   constructor(props) {
     super(props);
-    
+    this.state = { 
+      secondsElapsed: 0, 
+      lastClearedIncrementer: null
+    };
+    this.incrementer = null;
   }  
     
-  handleStartClick = () => {
-    
-    this.props.start();
-    interval = setInterval(() => {
-      if(this.props.isRunning){
-        this.props.tick();
-      }
-    },1000);
-    
+  handleStartClick() {
+    this.incrementer = setInterval( () =>
+      this.setState({
+        secondsElapsed: this.state.secondsElapsed + 1
+      })
+    , 1000);
   }
   
-  handleStopClick = () => {
-    interval = clearInterval(interval);
+  handleStopClick() {
+    clearInterval(this.incrementer);
+    this.setState({
+      lastClearedIncrementer: this.incrementer
+    });
   }
   
-  handleResetClick = () =>{
-
-    this.props.reset();
+  handleResetClick() {
+    clearInterval(this.incrementer);
+    this.setState({
+      secondsElapsed: 0,
+      laps: []
+    });
   }
-
-
-  
   
   render() {
     return (
       <div className="stopwatch">
-        <h1 className="stopwatch-timer">{this.props.formattedSecs}</h1>
-        
+        <h1 className="stopwatch-timer">{formattedSeconds(this.state.secondsElapsed)}</h1>
    
+        {(this.state.secondsElapsed === 0 ||
+          this.incrementer === this.state.lastClearedIncrementer
+          ? <Button className="start-btn" onClick={this.handleStartClick.bind(this)}><b>START</b></Button>
+          : <Button className="stop-btn" onClick={this.handleStopClick.bind(this)}><b>STOP</b></Button>
+        )}
         
-          <Button className="start-btn" onClick={this.handleStartClick}><b>START</b></Button>
-           <Button className="stop-btn" onClick={this.handleStopClick}><b>STOP</b></Button>
-        
-        
 
 
 
-
-          <Button className='reset-btn' onClick={this.handleResetClick}><b>RESET</b></Button>
-          
-      
+        {(this.state.secondsElapsed !== 0 &&
+          this.incrementer === this.state.lastClearedIncrementer
+          ? <Button className='reset-btn' onClick={this.handleResetClick.bind(this)}><b>RESET</b></Button>
+          : null
+        )}
 
         
       </div>
@@ -59,21 +67,6 @@ class Stopwatch extends React.Component {
   }
 }
 
-function mapStateToProps(state){
-  return {
-    secondsElapsed:state.secondsElapsed,
-    lastClearedIncrementer:state.lastClearedIncrementer,
-    formattedSecs:state.formattedSecs,
-    isRunning:state.isRunning,
-  };
-}
-
-const mapDispatchtoProps = {
-  start,
-  stop,
-  reset,
-  tick,
-}
 /** verbose component before 0.14
 class Button extends React.Component {
   render() {
@@ -86,4 +79,4 @@ class Button extends React.Component {
 const Button = (props) =>
   <button type="button" {...props} className={"btn " + props.className } />;
 
-export default connect(mapStateToProps,mapDispatchtoProps)(Stopwatch);
+export default Stopwatch;
