@@ -31,14 +31,14 @@ class TTForm extends Component{
                 <div className='TTFORMDATA'>
                     <form onSubmit={this.HandleSubmit}>
                         <span>Select Your Project:</span>
-                        
-                        <select onChange={this.HandleDropDown}>
+                        <select className="DropDownBox" onChange={this.HandleDropDown}>
                             <option value="Let's">Let's</option>
                             <option value="Figure">Figure</option>
                             <option value="This Out">This Out</option>
                         </select>
+                        <br/>
                         <span>Additional Comments</span>
-                        <textarea onChange={this.HandleComments}></textarea>
+                        <textarea className="AddCommentsBox" onChange={this.HandleComments}></textarea>
                         <input type='submit' />
                     </form>
                 </div>

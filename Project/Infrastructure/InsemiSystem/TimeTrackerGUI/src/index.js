@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import TTForm from './TTForm'
 import Stopwatch from "./Stopwatch";
 import "./Stopwatch.css";
+import "./TTForm.css";
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
