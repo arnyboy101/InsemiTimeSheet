@@ -21,6 +21,7 @@ class Stopwatch extends React.Component {
     },1000);
     
   }
+  //Sorry
   
   handleStopClick = () => {
     interval = clearInterval(interval);
