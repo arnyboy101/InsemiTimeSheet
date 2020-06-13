@@ -32,7 +32,8 @@ class HomeScreen extends React.Component {
     }
 
     onStopConfirmed = ()=>{
-            confirm('Are you sure you want to submit?');
+            let stop = confirm('Are you sure you want to submit?');
+            if(stop==true){
             let data2 = {
                 employeeId:0,
                 Project:this.state.user_Selection,
@@ -51,6 +52,7 @@ class HomeScreen extends React.Component {
                 }
                 return response.json();
               })
+            }
         }
     
 
@@ -81,7 +83,8 @@ class HomeScreen extends React.Component {
     
       
       handleStopClick() {
-        confirm("You are about to stop this project");
+        let stop = confirm("You are about to stop this project");
+        if (stop==true){
         clearInterval(this.incrementer);
         
         this.setState({
@@ -93,6 +96,7 @@ class HomeScreen extends React.Component {
 
         stopped = true;   
 
+        }
       }
 
     logged_time_checker(){
@@ -101,14 +105,17 @@ class HomeScreen extends React.Component {
       
 
      HandleSubmit = (event) => {
+      
         event.preventDefault();
-        confirm("You are selecting " + this.state.drop_down_value + " Project");
+        if(confirm("You are selecting " + this.state.drop_down_value + " Project")){
+          console.log('are you evem workuvnjkvn');
         this.setState({user_Selection:this.state.drop_down_value, add_Comments:this.state.comments_value});
         this.incrementer = setInterval( () =>
           this.setState({
             secondsElapsed: this.state.secondsElapsed + 1
           })
         , 1000);
+        }
       }
     HandleDropDown = (event) => {
         this.setState({drop_down_value: event.target.value});
