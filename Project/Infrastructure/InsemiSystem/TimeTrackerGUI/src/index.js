@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import HomeScreen from './HomeScreen';
-import "./Stopwatch.css";
-import "./TTForm.css";
+import "./HomeScreen.css";
 
 
 

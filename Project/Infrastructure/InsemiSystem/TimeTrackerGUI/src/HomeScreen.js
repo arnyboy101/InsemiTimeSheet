@@ -1,6 +1,6 @@
 import React from 'react';
 const Button = (props) =>
-  <button type="button" {...props} className={"btn " + props.className } />;
+  <button type="button" {...props} className={ props.className } />;
 
 const formattedSeconds = (sec) => 
   ('0'+Math.floor(sec/3600)).slice(-2) +
@@ -119,11 +119,11 @@ class HomeScreen extends React.Component {
 
      render(){
          return(
-    <div>
+    <div className = 'AppBoi'>
         <div className="stopwatch">
             <h1 className="stopwatch-timer">{formattedSeconds(this.state.secondsElapsed)}</h1>
            
-            <Button className="stop-btn" onClick={this.handleStopClick.bind(this)}><b>STOP</b></Button>
+            <Button className="btn stop-btn" onClick={this.handleStopClick.bind(this)}><b>STOP</b></Button>
         
            
             
@@ -131,7 +131,6 @@ class HomeScreen extends React.Component {
                        
         </div>
         <div className="TTForm">
-            <h1 className = "TTHeading">Hello!</h1>
                 <div className='TTFORMDATA'>
                     <form onSubmit={this.HandleSubmit}>
                         <span>Select Your Project:</span>
@@ -147,7 +146,7 @@ class HomeScreen extends React.Component {
                                   items.push(<option key={index} value={value}>{value}</option>);
                                 }
                                 return (
-                                        <div>
+                                        <div className="options">
                                             <select className="DropDownBox" onChange={this.HandleDropDown}>
                                             {items}
                                             </select>
@@ -161,8 +160,10 @@ class HomeScreen extends React.Component {
                         
                         <br/>
                         <span>Additional Comments</span>
+                        <br/>
                         <textarea className="AddCommentsBox" onChange={this.HandleComments}></textarea>
-                        <input type='submit' />
+                        <br/>
+                        <button type='submit' className="Database Tracking">Start Tracking</button>
                         
                     </form>
                     </div>
@@ -172,20 +173,11 @@ class HomeScreen extends React.Component {
                       <p>Project - {this.state.user_Selection}</p>
                       <p>Additional Comments - {this.state.add_Comments}</p>
                     <p>Logged Time - {formattedSeconds(this.state.loggedtime)}</p>
-                    <button onClick={this.onStopConfirmed}>Send to Database</button>
+                    <Button onClick={this.onStopConfirmed} className="Send">Send to Database</Button>
                     </div>
                     :
                     <div></div>
                     )}
-                
-                <span>Officially Logged Time : {this.state.loggedtime}</span>
-                <br></br>
-                
-                <span>Officially Logged Time 2: {this.state.loggedtime2}</span>
-                <br></br>
-                <span>Current Project: {this.state.user_Selection} and AddComents: {this.state.add_Comments}</span>
-                <br></br>
-                <span>Current Project: {this.state.drop_down_value} and AddComents: {this.state.comments_value}</span>
             </div>
     </div>
          );
