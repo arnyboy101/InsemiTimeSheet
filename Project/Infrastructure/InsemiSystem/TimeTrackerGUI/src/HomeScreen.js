@@ -9,7 +9,7 @@ const formattedSeconds = (sec) =>
   ':' +
   ('0' + sec % 60).slice(-2)
   
-  
+let stopped = false;  
 class HomeScreen extends React.Component {
 
     constructor(props){
@@ -21,20 +21,23 @@ class HomeScreen extends React.Component {
             drop_down_value:"",
             add_Comments:"",
             comments_value:"",
-            logged_time:0,
+            loggedtime:0,
+            loggedtime2:0,
             data:[{bruh:0}],
             placeholder:"",            
-            loaded:false
+            loaded:false,
+            runCount:0
         };
         this.incrementer = null;
     }
 
     onStopConfirmed = ()=>{
+            alert('Are you sure you want to submit?');
             let data2 = {
                 employeeId:0,
                 Project:this.state.user_Selection,
                 AddComments:this.state.add_Comments,
-                logged_time:this.state.logged_time
+                logged_time:this.state.loggedtime
             };
             fetch('/timetracker/api/TimeTracker/allObjects/',{
                 method: 'POST',
@@ -82,13 +85,19 @@ class HomeScreen extends React.Component {
         clearInterval(this.incrementer);
         
         this.setState({
-          logged_time:this.state.secondsElapsed,
+          loggedtime:this.state.secondsElapsed,
+        
           lastClearedIncrementer: this.incrementer,
           secondsElapsed: 0
         });
 
-        this.onStopConfirmed();
+        stopped = true;   
+
       }
+
+    logged_time_checker(){
+      console.log(this.state.loggedtime)
+    }
       
 
      HandleSubmit = (event) => {
@@ -154,9 +163,25 @@ class HomeScreen extends React.Component {
                         <span>Additional Comments</span>
                         <textarea className="AddCommentsBox" onChange={this.HandleComments}></textarea>
                         <input type='submit' />
+                        
                     </form>
-                </div>
-                <span>Officially Logged Time : {this.state.logged_time}</span>
+                    </div>
+                    {(stopped?
+                    <div className = 'SubConfirmation'>
+                      <p>Submit - </p>
+                      <p>Project - {this.state.user_Selection}</p>
+                      <p>Additional Comments - {this.state.add_Comments}</p>
+                    <p>Logged Time - {formattedSeconds(this.state.loggedtime)}</p>
+                    <button onClick={this.onStopConfirmed}>Send to Database</button>
+                    </div>
+                    :
+                    <div></div>
+                    )}
+                
+                <span>Officially Logged Time : {this.state.loggedtime}</span>
+                <br></br>
+                
+                <span>Officially Logged Time 2: {this.state.loggedtime2}</span>
                 <br></br>
                 <span>Current Project: {this.state.user_Selection} and AddComents: {this.state.add_Comments}</span>
                 <br></br>
