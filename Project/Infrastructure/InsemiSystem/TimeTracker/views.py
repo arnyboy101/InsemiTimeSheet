@@ -9,6 +9,10 @@ class ActivityListCreate(generics.ListCreateAPIView):
     queryset = Activity.objects.all()
     serializer_class = ActivitySerializer
 
+class ChoicesListCreate(generics.ListCreateAPIView):
+    queryset = Choices.objects.all()
+    serializer_class = ChoicesSerializer
+
 
 
     

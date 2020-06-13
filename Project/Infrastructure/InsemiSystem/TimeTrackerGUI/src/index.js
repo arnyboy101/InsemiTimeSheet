@@ -1,25 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TTForm from './TTForm'
-import Stopwatch from "./Stopwatch";
-import "./Stopwatch.css";
-import "./TTForm.css";
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
+import HomeScreen from './HomeScreen';
+import "./HomeScreen.css";
 
 
-function reducer(state, action) {
-  console.log('reducer', state, action);
-  return state;
-  }
-  
 
 
-const store = createStore(reducer, applyMiddleware(thunk));
+
 const App = () => (
 <div>
-<Stopwatch />
-<TTForm />
+<HomeScreen />
 </div>
 );
 
