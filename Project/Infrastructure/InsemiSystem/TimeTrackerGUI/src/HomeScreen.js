@@ -32,7 +32,7 @@ class HomeScreen extends React.Component {
     }
 
     onStopConfirmed = ()=>{
-            alert('Are you sure you want to submit?');
+            confirm('Are you sure you want to submit?');
             let data2 = {
                 employeeId:0,
                 Project:this.state.user_Selection,
@@ -81,7 +81,7 @@ class HomeScreen extends React.Component {
     
       
       handleStopClick() {
-        alert("You are about to stop this project");
+        confirm("You are about to stop this project");
         clearInterval(this.incrementer);
         
         this.setState({
@@ -102,7 +102,7 @@ class HomeScreen extends React.Component {
 
      HandleSubmit = (event) => {
         event.preventDefault();
-        alert("You are selecting " + this.state.drop_down_value + " Project");
+        confirm("You are selecting " + this.state.drop_down_value + " Project");
         this.setState({user_Selection:this.state.drop_down_value, add_Comments:this.state.comments_value});
         this.incrementer = setInterval( () =>
           this.setState({
