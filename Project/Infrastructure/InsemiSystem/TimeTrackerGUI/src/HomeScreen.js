@@ -1,4 +1,5 @@
 import React from 'react';
+import Cookies from 'js-cookie'
 const Button = (props) =>
   <button type="button" {...props} className={ props.className } />;
 
@@ -40,9 +41,10 @@ class HomeScreen extends React.Component {
                 AddComments:this.state.add_Comments,
                 logged_time:this.state.loggedtime
             };
+            let csrftoken = Cookies.get('csrftoken');
             fetch('/timetracker/api/TimeTracker/allObjects/',{
                 method: 'POST',
-                headers:{'Content-type':'application/json'},
+                headers:{'Content-type':'application/json','X-CSRFToken':csrftoken},
                 body:JSON.stringify(data2)
             }).then(response => {
                 if (response.status > 400) {
@@ -140,6 +142,7 @@ class HomeScreen extends React.Component {
         <div className="TTForm">
                 <div className='TTFORMDATA'>
                     <form onSubmit={this.HandleSubmit}>
+                    
                         <span>Select Your Project:</span>
                         
                         {this.state.data.map(choiceList => {
@@ -153,6 +156,7 @@ class HomeScreen extends React.Component {
                                   items.push(<option key={index} value={value}>{value}</option>);
                                 }
                                 return (
+                                    
                                         <div className="options">
                                             <select className="DropDownBox" onChange={this.HandleDropDown}>
                                             {items}
