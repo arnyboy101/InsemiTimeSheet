@@ -1,7 +1,37 @@
-# Add 'label1' to any changes within 'example' folder or any subfolders
-Change to Project:
-  - Project/**/*
 
 # Add 'label2' to any file changes within 'example2' folder
-Editing System: 
+Change Made to InsemiSystem:
   -Project/Infrastructure/InsemiSystem/**/*
+
+#Add   
+Change Made to TimeTracker
+  -Project/Infrastructure/InsemiSystem/TimeTracker/**/*
+ 
+Change Made to TimeTrackerGUI
+  -Project/Infrastructure/InsemiSystem/TimeTrackerGUI/**/*
+
+Change Made to CalendarGUI
+  -Project/Infrastructure/InsemiSystem/CalendarGUI/**/*
+ 
+Change Made to ExportGUI
+  -Project/Infrastructure/InsemiSystem/ExportGUI/**/*
+ 
+Change Made to HomeScreenGUI
+  -Project/Infrastructure/InsemiSystem/HomeScreenGUI/**/*
+
+Change Made to Login
+  -Project/Infrastructure/InsemiSystem/Login/**/*
+  
+Change Made to LoginGUI
+  -Project/Infrastructure/InsemiSystem/LoginGUI/**/*
+ 
+Change Made to TimeTracker
+  -Project/Infrastructure/InsemiSystem/TimeTracker/**/*
+
+Change Made to Django InsemiSystem Configuration
+  -Project/Infrastructure/InsemiSystem/InsemiSystem/**/*
+  
+Coverage Reports Updated
+  -Project/Infrastructure/InsemiSystem/htmlcov/**/*
+
+ 
