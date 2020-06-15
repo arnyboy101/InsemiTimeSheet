@@ -1,5 +1,9 @@
+from .forms import *
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
-from .models import User
 
-admin.site.register(User, UserAdmin)
+    # Now register the new UserAdmin...
+admin.site.register(CustomUser, UserAdmin)
+# ... and, since we're not using Django's built-in permissions,
+# unregister the Group model from admin.
+admin.site.unregister(Group)
+        
