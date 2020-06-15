@@ -126,6 +126,8 @@ class HomeScreen extends React.Component {
        this.setState({comments_value:event.target.value})
      }
 
+     //I'm not changing any actual code, just adding comments to test workflow
+
      render(){
          return(
     <div className = 'AppBoi'>
