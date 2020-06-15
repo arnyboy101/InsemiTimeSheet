@@ -23,9 +23,6 @@ Change Made to Login:
 Change Made to LoginGUI:
   -Project/Infrastructure/InsemiSystem/LoginGUI/**/*
  
-Change Made to TimeTracker:
-  -Project/Infrastructure/InsemiSystem/TimeTracker/**/*
-
 Change Made to Django InsemiSystem Configuration:
   -Project/Infrastructure/InsemiSystem/InsemiSystem/**/*
   
