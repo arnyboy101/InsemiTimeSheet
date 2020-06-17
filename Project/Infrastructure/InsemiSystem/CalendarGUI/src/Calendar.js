@@ -38,7 +38,9 @@ class Calendar extends Component{
     this.state = {
       current_Month : new Date(),
       selected_Date : new Date(),
-      
+      data : [{place_holder:0}],
+      loaded : false,
+
     };
  }
 
@@ -127,12 +129,28 @@ renderCells() {
 renderPane()
 {
   const dateFormat = "dd/MM/yyyy";
+  
   const formattedDate = format(this.state.selected_Date, dateFormat);
+  this.getAPI();
   return(
-    <Panel header="Activity Report" collapsible shaded>
-     <p>{formattedDate}</p>
-    </Panel>);
-    
+    <div>
+      <div>
+      <Panel header="Activity Report" collapsible shaded>
+        {this.state.data.map(activity => {
+          let project=activity.Project
+          if (project!=null) {
+            
+          return(
+               
+                  <p key={activity.id}>{format(created_at, dateFormat)==formattedDate ? activity.Project:""}</p>
+                  
+            
+             ); }
+        })}
+        </Panel>
+      </div>
+    </div>
+  );
 }
 
  onDateClick = day => {
@@ -143,6 +161,24 @@ renderPane()
   
   
 };
+getAPI = () => {
+  fetch('/timetracker/api/TimeTracker/allObjects/',{
+    }).then(response => {
+      if (response.status > 400) {
+        return this.setState(() => {
+          return { placeholder: "Something went wrong!" };
+        });
+      }
+    return response.json();
+    }).then(data => {
+      this.setState(() => {
+        return {
+          data,
+          loaded : true
+        };
+      });
+    });
+}
 
 nextMonth = () => {
   this.setState({

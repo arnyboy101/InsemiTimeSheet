@@ -137,7 +137,8 @@ class HomeScreen extends React.Component {
                     <form onSubmit={this.HandleSubmit}>
                     
                         <span>Select Your Project:</span>
-                        //Gets choices API data
+                        {//Gets choices API data
+                          }
                         {this.state.data.map(choiceList => {
                           //Stores tthe choices in local variable
                             let choices1 = choiceList.choices;
