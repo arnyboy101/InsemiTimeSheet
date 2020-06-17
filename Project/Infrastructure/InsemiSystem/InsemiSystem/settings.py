@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'TimeTrackerGUI',
     'ExportGUI',
     'CalendarGUI',
-    'Hierarchy',
+    #'Hierarchy.apps.HierarchyConfig',
 
     
 ]
@@ -133,7 +133,7 @@ USE_L10N = True
 
 USE_TZ = False
 
-AUTH_USER_MODEL = 'Hierarchy.CustomUser'
+#AUTH_USER_MODEL = 'Hierarchy.CustomUser'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
