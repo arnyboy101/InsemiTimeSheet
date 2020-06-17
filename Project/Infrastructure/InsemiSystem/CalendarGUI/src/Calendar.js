@@ -129,9 +129,9 @@ renderCells() {
 renderPane()
 {
   const dateFormat = "dd/MM/yyyy";
-  
-  const formattedDate = format(this.state.selected_Date, dateFormat);
   this.getAPI();
+  const formattedDate = format(this.state.selected_Date, dateFormat);
+  
   return(
     <div>
       <div>
@@ -140,7 +140,7 @@ renderPane()
           let date1 = (dateapi) => (new Date(dateapi))
           return(
                    <div className='Activites' key={activity.id}>
-                      {((date1(activity.created_at).getMonth() == this.state.selected_Date.getMonth())&&(date1(activity.created_at).getDate() == this.state.selected_Date.getDate())&&(date1(activity.created_at).getFullYear() == this.state.selected_Date.getFullYear()))? <p>{activity.Project} -  <br/> {activity.addComments} </p>:<p></p>}  
+                      {((date1(activity.created_at).getMonth() == this.state.selected_Date.getMonth())&&(date1(activity.created_at).getDate() == this.state.selected_Date.getDate())&&(date1(activity.created_at).getFullYear() == this.state.selected_Date.getFullYear()))? <p>{activity.Project} -  <br/> {activity.AddComments} </p>:<p></p>}  
                     
                   </div>
             
@@ -160,6 +160,7 @@ renderPane()
   
   
 };
+
 getAPI = () => {
   fetch('/timetracker/api/TimeTracker/allObjects/',{
     }).then(response => {
