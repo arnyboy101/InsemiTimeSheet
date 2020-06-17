@@ -137,15 +137,14 @@ renderPane()
       <div>
       <Panel header="Activity Report" collapsible shaded>
         {this.state.data.map(activity => {
-          let project=activity.Project
-          if (project!=null) {
-            
+          let date1 = (dateapi) => (new Date(dateapi))
           return(
-               
-                  <p key={activity.id}>{format(created_at, dateFormat)==formattedDate ? activity.Project:""}</p>
-                  
+                   <div className='Activites' key={activity.id}>
+                      {((date1(activity.created_at).getMonth() == this.state.selected_Date.getMonth())&&(date1(activity.created_at).getDate() == this.state.selected_Date.getDate())&&(date1(activity.created_at).getFullYear() == this.state.selected_Date.getFullYear()))? <p>{activity.Project} -  <br/> {activity.addComments} </p>:<p></p>}  
+                    
+                  </div>
             
-             ); }
+             ); 
         })}
         </Panel>
       </div>
