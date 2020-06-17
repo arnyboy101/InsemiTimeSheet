@@ -1,0 +1,143 @@
+
+@font-face {
+  font-family: 'Share Tech-Regular';
+  src: url('fonts/ShareTech-Regular.ttf');
+}
+
+
+.AppBoi {
+  font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neueu', Helvetica, Arial, sans-serif;
+  margin: 0;
+  background: #008080;
+  display: flex;
+  align-items: flex-start;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+
+
+  
+  .stopwatch { text-align: center;
+    text-align: center;
+    font-family: "Lucida Console", Courier, monospace;
+    padding: 100px;
+    color: black;
+     }
+
+
+  .stopwatch-timer {
+    font-size: 76px;
+    font-weight: 100;
+    line-height: 160px;
+    margin: 0;
+    border-width: 1px 0;
+  
+  }
+  
+
+  .btn {
+    font-family: inherit;
+    font-size: 36px;
+    display: inline-block;
+    width: 144px;
+    height: 144px;
+    margin: 24px;
+    padding: 0;
+    cursor: pointer;
+    letter-spacing: 1px;
+    /* border: 30px; */
+    border-color: #74e2bd;
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 50%;
+    outline: none;
+    background-color: #94ffd6;
+  
+  }
+
+  .Database{
+    font-family: inherit;
+    font-size: 20px;
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    margin: 24px;
+    padding: 0;
+    cursor: pointer;
+    border-radius:100%;
+    letter-spacing: 1px;
+    /* border: 30px; */
+    border-color: #74e2bd;
+    background-color: #94ffd6;
+    outline: none;
+    
+}
+  
+.Send{
+  font-family: inherit;
+    font-size: 20px;
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    margin: 24px;
+    padding: 0;
+    cursor: pointer;
+    border-radius:100%;
+    letter-spacing: 1px;
+    /* border: 30px; */
+    border-color: #02aaaa;
+    background-color:  #008080;;
+    color:white;
+    outline: none;
+}
+  
+  
+  
+  .start-btn { color:white }
+  .stop-btn  { color: black }
+  .reset-btn {color: yellow}
+  
+  .className {
+    font-family: "Lucida Console", Courier, monospace;
+}
+
+.TTFORMDATA {
+  background: #008080;
+  font-size: 36px;
+  font-weight: 100;
+  border-width: 1px 0;
+  padding: 100px;
+}
+
+.SubConfirmation{
+  background: #94ffd6;
+    font-size: 14px;
+    font-weight: 100;
+    border-width: 1px 0;
+}
+
+.DropDownBox {
+    color: -internal-light-dark-color(black, white);
+    display: inline-block;
+    text-align: start;
+    box-sizing: border-box;
+    align-items: center;
+    white-space: pre;
+    -webkit-rtl-ordering: logical;
+    background-color: -internal-light-dark-color(rgb(255, 255, 255), rgb(59, 59, 59));
+    cursor: default;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    border-radius: 0px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: -internal-light-dark-color(rgb(118, 118, 118), rgb(195, 195, 195));
+    border-image: initial;
+}
+
+.options{
+  border-width: 1px;
+  line-height: 50px;
+}
