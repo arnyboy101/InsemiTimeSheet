@@ -1,3 +1,4 @@
+
 """
 Django settings for InsemiSystem project.
 
@@ -38,14 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Login.apps.LoginConfig',
     'rest_framework',
-    'LoginGUI.apps.LoginguiConfig',
     'HomeScreenGUI',
     'TimeTracker',
     'TimeTrackerGUI',
     'ExportGUI',
     'CalendarGUI',
+    #'Hierarchy.apps.HierarchyConfig',
 
     
 ]
@@ -133,7 +133,7 @@ USE_L10N = True
 
 USE_TZ = False
 
-
+#AUTH_USER_MODEL = 'Hierarchy.CustomUser'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
