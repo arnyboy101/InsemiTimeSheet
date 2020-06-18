@@ -38,7 +38,9 @@ class Calendar extends Component{
     this.state = {
       current_Month : new Date(),
       selected_Date : new Date(),
-      
+      data : [{place_holder:0}],
+      loaded : false,
+
     };
  }
 
@@ -127,12 +129,27 @@ renderCells() {
 renderPane()
 {
   const dateFormat = "dd/MM/yyyy";
+  this.getAPI();
   const formattedDate = format(this.state.selected_Date, dateFormat);
+  
   return(
-    <Panel header="Activity Report" collapsible shaded>
-     <p>{formattedDate}</p>
-    </Panel>);
-    
+    <div>
+      <div>
+      <Panel header="Activity Report" collapsible shaded>
+        {this.state.data.map(activity => {
+          let date1 = (dateapi) => (new Date(dateapi))
+          return(
+                   <div className='Activites' key={activity.id}>
+                      {((date1(activity.created_at).getMonth() == this.state.selected_Date.getMonth())&&(date1(activity.created_at).getDate() == this.state.selected_Date.getDate())&&(date1(activity.created_at).getFullYear() == this.state.selected_Date.getFullYear()))? <p>{activity.Project} -  <br/> {activity.AddComments} </p>:<p></p>}  
+                    
+                  </div>
+            
+             ); 
+        })}
+        </Panel>
+      </div>
+    </div>
+  );
 }
 
  onDateClick = day => {
@@ -143,6 +160,25 @@ renderPane()
   
   
 };
+
+getAPI = () => {
+  fetch('/timetracker/api/TimeTracker/allObjects/',{
+    }).then(response => {
+      if (response.status > 400) {
+        return this.setState(() => {
+          return { placeholder: "Something went wrong!" };
+        });
+      }
+    return response.json();
+    }).then(data => {
+      this.setState(() => {
+        return {
+          data,
+          loaded : true
+        };
+      });
+    });
+}
 
 nextMonth = () => {
   this.setState({
