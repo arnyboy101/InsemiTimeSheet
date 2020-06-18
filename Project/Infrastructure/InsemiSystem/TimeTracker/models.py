@@ -9,6 +9,7 @@ class Activity(models.Model):
     Project = models.CharField(max_length = 256)
     AddComments = models.TextField(max_length = 1000)
     logged_time = models.IntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
     
 class Choices(models.Model):
     choices = ListCharField(
@@ -16,8 +17,4 @@ class Choices(models.Model):
         size=6,
         max_length=(6*257),
     )
-
-
-
-
 
