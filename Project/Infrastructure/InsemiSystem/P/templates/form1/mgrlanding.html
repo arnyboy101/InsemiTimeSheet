@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manager</title>
+</head>
+<body>
+<div>
+    <h1>Welcome Manager - {{NAME}}! </h1>
+</div>
+<div>
+    <form>
+        <button>Enter TimeSheets</button>
+        <button>View TimeSheets of Subordinates</button>
+    </form>
+</div>
+<p></p>
+<div>
+    <form action="/P/logout/"  method = 'post'>
+        {% csrf_token %}
+        <button > Logout</button>
+    </form>
+</div>
+</body>
+</html>
