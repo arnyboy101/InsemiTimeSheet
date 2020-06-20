@@ -1,0 +1,11 @@
+<head>
+    <title>Login</title>
+</head>
+<body>
+<form action='/P/login/' method="post">
+    {% csrf_token %}
+    <input type="hidden" id="csrf_token" value='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>
+    {{login.as_p}}
+    <input type = "submit" value = "Login">
+</form>
+</body>
