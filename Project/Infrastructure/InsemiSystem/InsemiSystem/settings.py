@@ -32,7 +32,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    
+    'P',
+    #'Hierarchy',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,7 +46,8 @@ INSTALLED_APPS = [
     'TimeTrackerGUI',
     'ExportGUI',
     'CalendarGUI',
-    #'Hierarchy.apps.HierarchyConfig',
+    'crispy_forms',
+
 
     
 ]
@@ -133,7 +135,7 @@ USE_L10N = True
 
 USE_TZ = False
 
-#AUTH_USER_MODEL = 'Hierarchy.CustomUser'
+AUTH_USER_MODEL = 'P.User'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 

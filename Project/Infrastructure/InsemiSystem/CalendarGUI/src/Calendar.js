@@ -44,6 +44,10 @@ class Calendar extends Component{
     };
  }
 
+ componentDidMount(){
+  this.getAPI();
+ }
+
  renderHeader() {
   const dateFormat = "MMMM yyyy";
 
@@ -129,7 +133,7 @@ renderCells() {
 renderPane()
 {
   const dateFormat = "dd/MM/yyyy";
-  this.getAPI();
+  
   const formattedDate = format(this.state.selected_Date, dateFormat);
   
   return(
@@ -191,6 +195,7 @@ prevMonth = () => {
     current_Month: subMonths(this.state.current_Month, 1)
   });
 };
+
 
 render() {
   return (
