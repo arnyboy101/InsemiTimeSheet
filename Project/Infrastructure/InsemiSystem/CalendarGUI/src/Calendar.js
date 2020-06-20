@@ -100,7 +100,8 @@ renderCells() {
   let formattedDate = "";
 
   while (day <= endDate) {
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 7; i++) 
+    {
       formattedDate = format(day, dateFormat);
       const cloneDay = day;
       days.push(
@@ -136,17 +137,28 @@ renderPane()
   
   const formattedDate = format(this.state.selected_Date, dateFormat);
   
+IdSearch= (event) =>{
+  this.setState({employee_id= event.target.value})
+}
+
   return(
     <div>
       <div>
       <Panel header="Activity Report" collapsible shaded>
         {this.state.data.map(activity => {
           let date1 = (dateapi) => (new Date(dateapi))
+          <br/>
+          <span>'Employee Id:'</span>
+          <br/>
+          <textarea className="IdSearch">, onChange={this.DateSearch}</textarea>
+          </br>
+          <button type = 'Search' className='IdSearch'>/button><start_search</button>
           return(
                    <div className='Activites' key={activity.id}>
                       {((date1(activity.created_at).getMonth() == this.state.selected_Date.getMonth())&&(date1(activity.created_at).getDate() == this.state.selected_Date.getDate())&&(date1(activity.created_at).getFullYear() == this.state.selected_Date.getFullYear()))? <p>{activity.Project} -  <br/> {activity.AddComments} </p>:<p></p>}  
                     
                   </div>
+                  <
             
              ); 
         })}
@@ -211,3 +223,4 @@ render() {
 }
 
 export default Calendar;
+ 
