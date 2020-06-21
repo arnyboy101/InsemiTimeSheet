@@ -141,12 +141,9 @@ renderPane()
   
   const formattedDate = format(this.state.selected_Date, dateFormat);
   
-<<<<<<< Updated upstream
-=======
 
 
 
->>>>>>> Stashed changes
   return(
     <div>
       <div>
@@ -154,8 +151,6 @@ renderPane()
           <span>Enter ID</span>
           <br/>
           <textarea className="IdSearch" onChange={this.idSearch}></textarea>
-          <br/>
-          <button type = 'submit' className='IdSearch' onClick={this.idSearch}>Search</button>
         </div>
       <Panel header="Activity Report" collapsible shaded>
         
@@ -163,20 +158,14 @@ renderPane()
         {this.state.data.map(activity => {
           
           let date1 = (dateapi) => (new Date(dateapi))
-<<<<<<< Updated upstream
-=======
           
           
->>>>>>> Stashed changes
           return(
                    <div className='Activites' key={activity.id}>
                       {((date1(activity.created_at).getMonth() == this.state.selected_Date.getMonth()) && (date1(activity.created_at).getDate() == this.state.selected_Date.getDate())&&(date1(activity.created_at).getFullYear() == this.state.selected_Date.getFullYear()) && (this.state.employee_id==activity.employeeId))? <p>{activity.Project} -  <br/> {activity.AddComments} </p>:<p></p>}  
                     
                   </div>
-<<<<<<< Updated upstream
-=======
                   
->>>>>>> Stashed changes
             
              ); 
         })}
