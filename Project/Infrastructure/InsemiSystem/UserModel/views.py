@@ -19,10 +19,27 @@ class RegisterView(CreateView):
         return redirect('/users/login/')
 
 def login_page(request):
-    model = User
+    model = UserDef
     if request.method == 'POST':
         logging = Login(request.POST)
     else:
         logging = Login()
     return render(request, 'UserModel/login.html', {'login': logging})
+
+def check(request):
+    model = UserDef
+    data=request.POST.copy()
+    username = data.get('Username')
+    password = data.get('Password')
+    user = authenticate(request, username=username, password=password)
+
+    validity = ["Successful", "Unsuccessful"]
+    valid = ""
+    if user is not None:
+        valid = validity[0]
+    else:
+        valid = validity[1]
+    
+
+    return render(request, 'UserModel/base.html',{'valid':valid})
         

@@ -2,7 +2,7 @@
     <title>Login</title>
 </head>
 <body>
-<form action='/P/login/' method="post">
+<form action='/users/authenticate/' method="post">
     {% csrf_token %}
     <input type="hidden" id="csrf_token" value='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>
     {{login.as_p}}
