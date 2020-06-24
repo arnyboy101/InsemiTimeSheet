@@ -40,7 +40,7 @@ class Calendar extends Component{
       selected_Date : new Date(),
       data : [{place_holder:0}],
       loaded : false,
-
+      employee_id: 0,
     };
  }
 
@@ -130,23 +130,42 @@ renderCells() {
   return <div className="body">{rows}</div>;
 }
 
+idSearch = (event) => {
+  this.setState({employee_id:event.target.value})
+}
+
+
 renderPane()
 {
   const dateFormat = "dd/MM/yyyy";
   
   const formattedDate = format(this.state.selected_Date, dateFormat);
   
+
+
+
   return(
     <div>
       <div>
+      <div>
+          <span>Enter ID</span>
+          <br/>
+          <textarea className="IdSearch" onChange={this.idSearch}></textarea>
+        </div>
       <Panel header="Activity Report" collapsible shaded>
+        
+
         {this.state.data.map(activity => {
+          
           let date1 = (dateapi) => (new Date(dateapi))
+          
+          
           return(
                    <div className='Activites' key={activity.id}>
-                      {((date1(activity.created_at).getMonth() == this.state.selected_Date.getMonth())&&(date1(activity.created_at).getDate() == this.state.selected_Date.getDate())&&(date1(activity.created_at).getFullYear() == this.state.selected_Date.getFullYear()))? <p>{activity.Project} -  <br/> {activity.AddComments} </p>:<p></p>}  
+                      {((date1(activity.created_at).getMonth() == this.state.selected_Date.getMonth()) && (date1(activity.created_at).getDate() == this.state.selected_Date.getDate())&&(date1(activity.created_at).getFullYear() == this.state.selected_Date.getFullYear()) && (this.state.employee_id==activity.employeeId))? <p>{activity.Project} -  <br/> {activity.AddComments} </p>:<p></p>}  
                     
                   </div>
+                  
             
              ); 
         })}
