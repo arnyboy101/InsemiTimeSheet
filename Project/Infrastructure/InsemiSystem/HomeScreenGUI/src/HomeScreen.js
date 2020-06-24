@@ -11,18 +11,26 @@ class HomeScreen extends Component {
     render(){
         return(
             <div>
-                <div>
-                    <button>Settings</button>
+
+                <div className = "Settings">
+                    <button className="SettingsButton">Settings</button>
                 </div>
+
                 <div>
                     <h1>Hello!</h1>
                 </div>
 
-                <div>
-                    <button>View Calendar</button>
-                    <button>Enter TimeTracker</button>
-                    <button>Export Files</button>
+                <div className = "Menu">
+                <a href="/calendar/" target="_parent"> <button className = "Calendar" type="button">View Calendar</button></a>
+                    <button className = "TimeTracker">Enter TimeTracker</button>
+                    <button className = "Export">Export Files</button>
                 </div>
+
+                <div className = "Notice">
+                    {//Notice Board Goes Here
+                    }
+                </div>
+
             </div>
         );
     }
