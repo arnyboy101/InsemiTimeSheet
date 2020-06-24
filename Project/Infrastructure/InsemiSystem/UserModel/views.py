@@ -41,5 +41,5 @@ def check(request):
         valid = validity[1]
     
 
-    return render(request, 'UserModel/base.html',{'valid':valid})
+    return redirect('/home/')
         
