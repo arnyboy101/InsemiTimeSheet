@@ -22,8 +22,10 @@ class HomeScreen extends Component {
 
                 <div className = "Menu">
                 <a href="/calendar/" target="_parent"> <button className = "Calendar" type="button">View Calendar</button></a>
-                    <button className = "TimeTracker">Enter TimeTracker</button>
-                    <button className = "Export">Export Files</button>
+                <br/>
+                <a href="/ttgui/op/" target="_parent"> <button className = "TimeTracker">Enter TimeTracker</button></a>
+                </br>
+                <a href="/export/" target="_parent"><button className = "Export">Export Files</button></a> 
                 </div>
 
                 <div className = "Notice">
