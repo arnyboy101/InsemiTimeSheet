@@ -6,9 +6,9 @@ const Button = (props) =>
 const formattedSeconds = (sec) => 
   ('0'+Math.floor(sec/3600)).slice(-2) +
   ':' +
-  ('0'+ Math.floor(sec/60)%60 ).slice(-2) +
+  ('0'+ Math.floor(sec/60)%60).slice(-2) +
   ':' +
-  ('0' + sec % 60).slice(-2)
+  ('0' + sec%60).slice(-2)
   
 let stopped = false;  
 class HomeScreen extends React.Component {
@@ -137,8 +137,7 @@ class HomeScreen extends React.Component {
                     <form onSubmit={this.HandleSubmit}>
                     
                         <span>Select Your Project:</span>
-                        {//Gets choices API data
-                          }
+
                         {this.state.data.map(choiceList => {
                           //Stores tthe choices in local variable
                             let choices1 = choiceList.choices;
@@ -180,7 +179,6 @@ class HomeScreen extends React.Component {
                     }
                     {(stopped?
                     <div className = 'SubConfirmation'>
-                      <p>Submit - </p>
                       <p>Project - {this.state.user_Selection}</p>
                       <p>Additional Comments - {this.state.add_Comments}</p>
                     <p>Logged Time - {formattedSeconds(this.state.loggedtime)}</p>

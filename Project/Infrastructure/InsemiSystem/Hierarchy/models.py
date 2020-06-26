@@ -1,6 +1,8 @@
-from django.db import models
 from django.contrib.auth.models import (AbstractBaseUser, BaseUserManager)
+from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.admin import UserAdmin
+from django.db import models
+
 
 class UserManager(BaseUserManager):
 
@@ -42,20 +44,24 @@ class UserManager(BaseUserManager):
         return user
 
 
-class CustomUser(AbstractBaseUser):
-    identifier = models.IntegerField(unique=True)
-    employeeId = 'identifier'
+class CustomUser(AbstractUser):
+
+    
+
+    employeeId  = models.IntegerField(unique=True)
     email_address = models.EmailField()
-    password = models.PasswordField()
+    password = models.CharField(max_length=512)
     first_name = models.CharField(max_length=64)
     last_name = models.CharField(max_length=64)
     created_at = models.DateTimeField(auto_now_add=True)
+    is_admin = models.BooleanField()
 
     objects = UserManager()  
 
     REQUIRED_FIELDS = ['employeeId','email_address','first_name','last_name','created_at','password']
     USERNAME_FIELD = 'email_address'
 
+    
     def __str__(self):
         return first_name + last_name
         
@@ -68,4 +74,9 @@ class CustomUser(AbstractBaseUser):
     @property 
     def is_staff(self):
         return self.is_admin
+
+    #class Meta:
+        #app_label = 'CustomUser'
+        #db_table = "CustomUser"
+
     
