@@ -13,7 +13,7 @@ class HomeScreen extends Component {
             <div>
 
                 <div className = "Settings">
-                    <button className="SettingsButton">Settings</button>
+                    <a href="/users/settings/" target="_parent"><button className="SettingsButton">Settings</button></a>
                 </div>
 
                 <div>

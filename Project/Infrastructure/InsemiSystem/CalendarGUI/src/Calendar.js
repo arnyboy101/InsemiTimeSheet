@@ -45,7 +45,7 @@ class Calendar extends Component{
  }
 
  componentDidMount(){
-  this.getAPI();
+  this.API();
  }
 
  renderHeader() {
