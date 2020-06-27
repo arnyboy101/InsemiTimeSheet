@@ -13,7 +13,7 @@ class HomeScreen extends Component {
             <div>
 
                 <div className = "Settings">
-                    <button className="SettingsButton">Settings</button>
+                    <a href="/users/settings/" target="_parent"><button className="SettingsButton">Settings</button></a>
                 </div>
 
                 <div>
@@ -24,7 +24,7 @@ class HomeScreen extends Component {
                 <a href="/calendar/" target="_parent"> <button className = "Calendar" type="button">View Calendar</button></a>
                 <br/>
                 <a href="/ttgui/op/" target="_parent"> <button className = "TimeTracker">Enter TimeTracker</button></a>
-                </br>
+                <br/>
                 <a href="/export/" target="_parent"><button className = "Export">Export Files</button></a> 
                 </div>
 
