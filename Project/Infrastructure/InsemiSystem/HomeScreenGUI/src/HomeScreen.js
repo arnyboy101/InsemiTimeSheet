@@ -42,7 +42,7 @@ class HomeScreen extends Component {
             <div>
 
                 <div className = "Settings">
-                    <button className="SettingsButton">Settings</button>
+                    <a href="/users/settings/" target="_parent"><button className="SettingsButton">Settings</button></a>
                 </div>
                 {this.state.data.map(userDetails => {
                     let f_name = userDetails.first_name;

@@ -8,4 +8,5 @@ urlpatterns = [
     path('login/', views.login_page),
     path('authenticate/', views.check),
     path('api/', views.UserListCreate.as_view()),
+    path('settings/', views.settings)
 ]

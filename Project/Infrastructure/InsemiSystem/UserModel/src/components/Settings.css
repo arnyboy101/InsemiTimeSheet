@@ -1,0 +1,77 @@
+
+@font-face {
+  font-family: 'Share Tech-Regular';
+  src: url('fonts/ShareTech-Regular.ttf');
+}
+
+
+.Menu {
+  font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neueu', Helvetica, Arial, sans-serif;
+  margin: 0;
+  background: #008080;
+  display: flex;
+  align-items: flex-start;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+
+
+  
+  .Password { text-align: center;
+    text-align: center;
+    font-family: "Lucida Console", Courier, monospace;
+    padding: 100px;
+    color: black;
+     }
+
+
+  .First_Name {
+    font-size: 76px;
+    font-weight: 100;
+    line-height: 160px;
+    margin: 0;
+    border-width: 1px 0;
+  
+  }
+  
+
+  .Last_Name {
+    font-family: inherit;
+    font-size: 36px;
+    display: inline-block;
+    width: 144px;
+    height: 144px;
+    margin: 24px;
+    padding: 0;
+    cursor: pointer;
+    letter-spacing: 1px;
+    /* border: 30px; */
+    border-color: #74e2bd;
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 50%;
+    outline: none;
+    background-color: #94ffd6;
+  
+  }
+
+  .Exit{
+    font-family: inherit;
+    font-size: 20px;
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    margin: 24px;
+    padding: 0;
+    cursor: pointer;
+    border-radius:100%;
+    letter-spacing: 1px;
+    /* border: 30px; */
+    border-color: #74e2bd;
+    background-color: #94ffd6;
+    outline: none;
+    
+}
+  

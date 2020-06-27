@@ -46,6 +46,10 @@ def check(request):
     
 
     
+    return redirect('/home/')
+
+def settings(request):
+    return render(request,'UserModel/settings.html')
         
 
 class UserListCreate(generics.ListCreateAPIView):
