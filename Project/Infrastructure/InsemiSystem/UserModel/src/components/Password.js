@@ -11,25 +11,7 @@ class Password extends Component {
     };
   }
 
-  componentDidMount() {
-    fetch("/users/passwordChange/")
-      .then(response => {
-        if (response.status > 400) {
-          return this.setState(() => {
-            return { placeholder: "Something went wrong!" };
-          });
-        }
-        return response.json();
-      })
-      .then(data => {
-        this.setState(() => {
-          return {
-            data,
-            loaded: true
-          };
-        });
-      });
-  }
+  
 
    render() {
     return (
@@ -38,10 +20,10 @@ class Password extends Component {
                 <h1>Password Change Page</h1>
             </div>
             <div className = "Change_Password">
-                <label for="Original">Original Password:</label><br>
-                <input type="text" id="Original" name="Original"><br>
-                <label for="Changed">Changed Password:</label><br>
-                <input type="text" id="Changed" name="Changed">
+                <label for="Original">Original Password:</label><br/>
+                <input type="text" id="Original" name="Original"></input><br/>
+                <label for="Changed">Changed Password:</label><br/>
+                <input type="text" id="Changed" name="Changed"></input>
                 <a><button className = "Submit">Submit</button></a> 
             </div>
             <div className = "Exit">
@@ -52,5 +34,5 @@ class Password extends Component {
   }
 }
 
-export default Settings;
+export default Password;
 

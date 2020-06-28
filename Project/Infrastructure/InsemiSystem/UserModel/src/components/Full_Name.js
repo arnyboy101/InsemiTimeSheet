@@ -11,26 +11,7 @@ class Full_Name extends Component {
     };
   }
 
-  componentDidMount() {
-    fetch("/users/fullnameChange/")
-      .then(response => {
-        if (response.status > 400) {
-          return this.setState(() => {
-            return { placeholder: "Something went wrong!" };
-          });
-        }
-        return response.json();
-      })
-      .then(data => {
-        this.setState(() => {
-          return {
-            data,
-            loaded: true
-          };
-        });
-      });
-  }
-
+  
    render() {
     return (
         <div>
@@ -38,19 +19,17 @@ class Full_Name extends Component {
                 <h1>Name Change Page</h1>
             </div>
             <div className = "Change_Name">
-                <label for="Original">Original Full Name:</label><br>
-                <input type="text" id="Original" name="Original"><br>
-                <label for="Changed">Changed Full Name:</label><br>
-                <input type="text" id="Changed" name="Changed">
+                
+                <input type="text" label="Original Full Name"></input><br/>
+                
+                <input type="text"label ="Changed Full Name"></input>
                 <a><button className = "Submit">Submit</button></a> 
             </div>
-            <div className = "Exit">
-                <a href="/home/settings" target="_parent"> <button className = "Exit">Go back to Settings</button></a>
-            </div>
+
         </div>
     );
   }
 }
 
-export default Settings;
+export default Full_Name;
 
