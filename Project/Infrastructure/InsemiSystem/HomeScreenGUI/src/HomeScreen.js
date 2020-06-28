@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './HomeScreen.css';
 
 class HomeScreen extends Component {
     constructor(props) {

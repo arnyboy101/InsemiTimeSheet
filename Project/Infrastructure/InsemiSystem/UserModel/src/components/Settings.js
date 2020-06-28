@@ -1,5 +1,11 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
+import Full_Name from "./Full_Name";
+import Password from "./Password";
+import Phone from "./Phone";
+let full_name_clicked =  false;
+let password_clicked = false;
+let phone_cliked = false;
 
 class Settings extends Component {
   constructor(props) {
@@ -7,28 +13,23 @@ class Settings extends Component {
     this.state = {
       data: [],
       loaded: false,
-      placeholder: "Loading"
+      placeholder: "Loading",
+      
     };
   }
 
-  componentDidMount() {
-    fetch("/users/settings/")
-      .then(response => {
-        if (response.status > 400) {
-          return this.setState(() => {
-            return { placeholder: "Something went wrong!" };
-          });
-        }
-        return response.json();
-      })
-      .then(data => {
-        this.setState(() => {
-          return {
-            data,
-            loaded: true
-          };
-        });
-      });
+ 
+
+  fullNameClicked = () => {
+    full_name_clicked = true;
+  }
+
+ passwordClicked = () => {
+    password_clicked = true;
+  }
+
+  phoneNumClicked = () => {
+    phone_cliked = true;
   }
 
    render() {
@@ -38,12 +39,19 @@ class Settings extends Component {
                 <h1>SETTINGS PAGE</h1>
             </div>
             <div className = "Menu">
-                <a> <button className = "Password">Change Password</button></a>
+                 <button className = "Password" onClick = {this.passwordClicked}>Change Password</button>
                 <br/>
-                <a> <button className = "First_Name">Change First Name</button></a>
+                {password_clicked? <div> <Password/> <br/> </div> : <div></div>}
+                
+                
+                 <button className = "Full_Name"  onClick = {this.fullNameClicked} >Change Full Name</button>
                 <br/>
-                <a><button className = "Last_Name">Change Last Name</button></a> 
+                {full_name_clicked? <div> <Full_Name/> <br/>  {console.log("hello!")} </div>: <div></div>}
+                
+                <button className = "Phone_Number" onClick = {this.phoneNumClicked}>Change Phone Number</button>
+                {phone_cliked? <div> <Phone/> <br/> </div> : <div></div>}
             </div>
+
             <div className = "Exit">
                 <a href="/home/" target="_parent"> <button className = "Exit">Go back to homescreen</button></a>
             </div>
