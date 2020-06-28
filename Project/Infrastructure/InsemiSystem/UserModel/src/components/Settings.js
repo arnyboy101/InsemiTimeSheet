@@ -45,7 +45,7 @@ class Settings extends Component {
                 <a><button className = "Last_Name">Change Last Name</button></a> 
             </div>
             <div className = "Exit">
-                <a href="/home" target="_parent"> <button className = "Exit">Go back to homescreen</button></a>
+                <a href="/home/" target="_parent"> <button className = "Exit">Go back to homescreen</button></a>
             </div>
         </div>
     );
