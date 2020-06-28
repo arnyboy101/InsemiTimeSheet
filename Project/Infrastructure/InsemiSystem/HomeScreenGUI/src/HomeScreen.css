@@ -1,0 +1,55 @@
+
+
+            .Settings
+            {
+                flex:1;
+                justify-content: center;
+                align-self: center;
+                background-color: bisque;
+                border-color: black;
+            }
+            .Menu
+            {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                width: 500px;
+                height: 700px;
+                margin:auto;
+                background-color: burlywood;
+                border-color: black;
+
+            }   
+               
+               .Calendar
+                {
+                    
+                   flex:1;
+                   justify-content: start;
+                   align-self: center;
+                   background-color: bisque;
+                   border-color: black;
+                
+
+                }
+                .TimeTracker
+                {
+                    
+                    flex:1;
+                    justify-content: center;
+                    align-self: center;
+                    background-color: bisque;
+                    border-color: black;
+                   
+                }
+                .Export
+                {
+                    
+                    flex:1;
+                    justify-content: end;
+                    align-self: center;
+                    background-color: bisque;
+                    border-color: black;
+                   
+                }

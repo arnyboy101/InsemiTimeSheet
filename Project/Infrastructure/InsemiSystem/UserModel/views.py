@@ -6,6 +6,9 @@ from django.shortcuts import render
 from django.template.context_processors import request
 from django.views.generic import *
 from .forms import *
+from rest_framework import generics
+from .serializers import *
+from datetime import datetime
 
 class RegisterView(CreateView):
     model = UserDef
@@ -32,14 +35,23 @@ def check(request):
     username = data.get('Username')
     password = data.get('Password')
     user = authenticate(request, username=username, password=password)
-
-    validity = ["Successful", "Unsuccessful"]
+   
     valid = ""
     if user is not None:
-        valid = validity[0]
+        user.previous_login = datetime.now()
+        user.save()
+        return redirect('/home/',{'user':user})
     else:
-        valid = validity[1]
+        return HttpResponseNotFound("<p> Login failed!. Please check your username and password. </p>")
     
 
+    
     return redirect('/home/')
+
+def settings(request):
+    return render(request,'UserModel/settings.html')
         
+
+class UserListCreate(generics.ListCreateAPIView):
+    queryset = UserDef.objects.all()
+    serializer_class = UserDefSerializer
