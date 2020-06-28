@@ -1,6 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-
+from django.utils.translation import gettext_lazy as _
 # Create your models here.
 
 class UserDef(AbstractUser):
@@ -11,6 +11,7 @@ class UserDef(AbstractUser):
     email_address = models.EmailField()
     first_name = models.CharField(max_length=256)
     last_name = models.CharField(max_length=256)
-    USER_TYPES = [('1',"Admin"), ('2',"Director"), ('3',"Sr. Manager"), ('4',"Manager") , ('5',"Sr. Engineer"), ('6',"Assistant Regional Manager"), ('7',"Assistant to the Regional Manager")]
+    USER_TYPES = [("Admin","Admin"), ('Director',"Director"), ('Sr. Manager',"Sr. Manager"), ('Manager',"Manager") , ('Sr. Engineer',"Sr. Engineer"), ('Assistant Regional Manager',"Assistant Regional Manager"), ('Assistant to the Regional Manager',"Assistant to the Regional Manager")]
     user_type = models.CharField(max_length=2048, choices=USER_TYPES)
     created_at = models.DateTimeField(auto_now_add=True)
+    previous_login = models.DateTimeField()
