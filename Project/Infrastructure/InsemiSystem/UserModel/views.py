@@ -45,4 +45,4 @@ def check(request):
 
 def settings(request):
     return render(request,'UserModel/settings.html')
-        
+
