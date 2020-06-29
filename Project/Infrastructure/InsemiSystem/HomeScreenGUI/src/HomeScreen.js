@@ -66,9 +66,9 @@ class HomeScreen extends Component {
                                     (dateconv(userDetails.previous_login).getFullYear()==datenow.getFullYear()) && 
                                     (dateconv(userDetails.previous_login).getMinutes()==datenow.getMinutes()) && 
                                     (dateconv(userDetails.previous_login).getHours() == datenow.getHours()) && 
-                                    ((dateconv(userDetails.previous_login).getSeconds() > datenow.getSeconds()-60) && 
+                                    ((dateconv(userDetails.previous_login).getSeconds() > datenow.getSeconds()-120) && 
                                     
-                                    (dateconv(userDetails.previous_login).getSeconds() < datenow.getSeconds()+60)
+                                    (dateconv(userDetails.previous_login).getSeconds() < datenow.getSeconds()+120)
                                     
                                     ))?
                                         <div>
