@@ -17,13 +17,14 @@ from django.contrib import admin
 from django.urls import path,include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+   path('admin/', admin.site.urls),
     path('home/', include('HomeScreenGUI.urls')),
     path('timetracker/',include('TimeTracker.urls')),
     path('ttgui/',include('TimeTrackerGUI.urls')),
     path('export/',include('ExportGUI.urls')),
     path('calendar/',include('CalendarGUI.urls')),
-    path('P/',include('P.urls'))
+    path('users/', include('UserModel.urls'))
+    #path('P/',include('P.urls'))
     
 
     

@@ -1,6 +1,4 @@
-<<<<<<< Updated upstream
-import App from "./components/App";
-=======
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import HomeScreen from './HomeScreen';
@@ -24,4 +22,4 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('app')
 );
->>>>>>> Stashed changes
+

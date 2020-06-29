@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Cookies from 'js-cookie'
 const Button = (props) =>
@@ -6,9 +7,9 @@ const Button = (props) =>
 const formattedSeconds = (sec) => 
   ('0'+Math.floor(sec/3600)).slice(-2) +
   ':' +
-  ('0'+ Math.floor(sec/60)%60 ).slice(-2) +
+  ('0'+ Math.floor(sec/60)%60).slice(-2) +
   ':' +
-  ('0' + sec % 60).slice(-2)
+  ('0' + sec%60).slice(-2)
   
 let stopped = false;  
 class HomeScreen extends React.Component {
