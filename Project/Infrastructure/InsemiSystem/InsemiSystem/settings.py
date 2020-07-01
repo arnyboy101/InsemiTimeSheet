@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'P',
+    #'P',
     #'Hierarchy',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -135,7 +135,7 @@ USE_L10N = True
 
 USE_TZ = False
 
-AUTH_USER_MODEL = 'P.User'
+#AUTH_USER_MODEL = 'P.User'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
