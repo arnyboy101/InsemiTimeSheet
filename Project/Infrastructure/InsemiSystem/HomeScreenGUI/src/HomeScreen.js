@@ -48,7 +48,7 @@ class HomeScreen extends Component {
                 {this.state.data.map(userDetails => {
                     let f_name = userDetails.first_name;
                     let dateconv = (dateapi) => (new Date(dateapi))
-                    
+                    let usertype = userDetails.user_type;
                     let datenow = new Date()
 
 
@@ -58,9 +58,11 @@ class HomeScreen extends Component {
                     {   
                        
                             return(
+                                
                                 <div className = "Greeting">
                                     {console.log(dateconv(userDetails.previous_login))}
                                     {console.log(datenow)}
+                                    {(usertype=='Admin') ? <a href="/calendar/" target="_parent"> <button className = "User" type="button">User Function</button></a> : <div></div>}
                                     {((dateconv(userDetails.previous_login).getMonth()==datenow.getMonth()) && 
                                     (dateconv(userDetails.previous_login).getDate()==datenow.getDate()) && 
                                     (dateconv(userDetails.previous_login).getFullYear()==datenow.getFullYear()) && 
@@ -72,19 +74,21 @@ class HomeScreen extends Component {
                                     
                                     ))?
                                         <div>
-                                            <h1> Hello {f_name}! </h1>
+                                            <h1> hi {f_name}! </h1>
                                             <p> Designation - {userDetails.user_type} </p>
                                         </div>
+                                        
                                         :
-                                        <div>     
+                                        <div>
                                         </div>
                                     }
                                 </div> 
-
+                                
+                                
                             );
                     }
                 })}
-
+                 
 
                 <div className = "Menu">
                 <a href="/calendar/" target="_parent"> <button className = "Calendar" type="button">View Calendar</button></a>
