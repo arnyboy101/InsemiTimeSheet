@@ -8,7 +8,8 @@ class HomeScreen extends Component {
             employeeId:0,
             data:[{place_holder:0}],
             placeholder:"",
-            loaded:false
+            loaded:false,
+            date_now:new Date()
         };
     }
 
@@ -34,6 +35,7 @@ class HomeScreen extends Component {
             });
 
         });
+        
 
         
     }
@@ -62,22 +64,23 @@ class HomeScreen extends Component {
                                 <div className = "Greeting">
                                     {console.log(dateconv(userDetails.previous_login))}
                                     {console.log(datenow)}
-                                    {(usertype=='Admin') ? <a href="/calendar/" target="_parent"> <button className = "User" type="button">User Function</button></a> : <div></div>}
-                                    {((dateconv(userDetails.previous_login).getMonth()==datenow.getMonth()) && 
-                                    (dateconv(userDetails.previous_login).getDate()==datenow.getDate()) && 
-                                    (dateconv(userDetails.previous_login).getFullYear()==datenow.getFullYear()) && 
-                                    (dateconv(userDetails.previous_login).getMinutes()==datenow.getMinutes()) && 
-                                    (dateconv(userDetails.previous_login).getHours() == datenow.getHours()) && 
-                                    ((dateconv(userDetails.previous_login).getSeconds() > datenow.getSeconds()-120) && 
                                     
-                                    (dateconv(userDetails.previous_login).getSeconds() < datenow.getSeconds()+120)
+                                    {((dateconv(userDetails.previous_login).getMonth()==this.state.date_now.getMonth()) && 
+                                    (dateconv(userDetails.previous_login).getDate()==this.state.date_now.getDate()) && 
+                                    (dateconv(userDetails.previous_login).getFullYear()==this.state.date_now.getFullYear()) && 
+                                    (dateconv(userDetails.previous_login).getMinutes()==this.state.date_now.getMinutes()) && 
+                                    (dateconv(userDetails.previous_login).getHours() == this.state.date_now.getHours()) && 
+                                    ((dateconv(userDetails.previous_login).getSeconds() > this.state.date_now.getSeconds()-60) &&
+                                    (dateconv(userDetails.previous_login).getSeconds() < this.state.date_now.getSeconds()+60)) &&
+                                    (usertype=='Admin')
+                                    )?
                                     
-                                    ))?
                                         <div>
                                             <h1> hi {f_name}! </h1>
                                             <p> Designation - {userDetails.user_type} </p>
+                                       
+                                        <a href="/calendar/" target="_parent"> <button className = "User" type="button">User Function</button></a>
                                         </div>
-                                        
                                         :
                                         <div>
                                         </div>
