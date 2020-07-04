@@ -23,7 +23,8 @@ urlpatterns = [
     path('ttgui/',include('TimeTrackerGUI.urls')),
     path('export/',include('ExportGUI.urls')),
     path('calendar/',include('CalendarGUI.urls')),
-    path('users/', include('UserModel.urls'))
+    path('users/', include('UserModel.urls')),
+    path('userfunc/', include('UserFunctionsGUI.urls'))
     #path('P/',include('P.urls'))
     
 

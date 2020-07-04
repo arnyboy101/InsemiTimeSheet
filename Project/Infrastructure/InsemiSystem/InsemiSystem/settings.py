@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'TimeTrackerGUI',
     'ExportGUI',
     'CalendarGUI',
+    'UserFunctionsGUI',
     'crispy_forms',
     
 
