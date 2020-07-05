@@ -5,5 +5,5 @@ from . import views
 
 urlpatterns = [
     path('',views.UserFunc),
-    path('/change',views.UserChange)
+    path('',views.UserChange)
 ]
