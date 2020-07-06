@@ -38,6 +38,7 @@ def check(request):
    
     valid = ""
     if user is not None:
+        login(request,user)
         user.previous_login = datetime.now()
         user.save()
         return redirect('/home/',{'user':user})
