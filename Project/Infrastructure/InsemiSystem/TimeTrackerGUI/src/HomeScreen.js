@@ -110,61 +110,58 @@ class HomeScreen extends React.Component {
      HandleComments = (event) => {
        this.setState({comments_value:event.target.value})
      }
+     UserChange() {
+        let stop = confirm("You are about to stop this project");
+        stopped = true;  
+        console.log(stopped) 
+        
+  }
      render(){
          return(
-    <div className = 'AppBoi'>
-        <div className="stopwatch">
-            <h1 className="stopwatch-timer">{formattedSeconds(this.state.secondsElapsed)}</h1>
-            <Button className="btn stop-btn" onClick={this.handleStopClick.bind(this)}><b>STOP</b></Button>
+    <div className = 'Random'>
+        <div className = 'UserFuncButtons'>
+        <div>
+            <h1>User Functions Page</h1>
         </div>
-        <div className="TTForm">
-                <div className='TTFORMDATA'>
-                    <form onSubmit={this.HandleSubmit}>
-                        <span>Select Your Project:</span>
-                        {this.state.data.map(choiceList => {
-                          //Stores tthe choices in local variable
-                            let choices1 = choiceList.choices;
-                            //Only runs if choices are fetched
-                            if (choices1!=null)
-                            {
-                                //Splits words into an array and removes the '[]'
-                                choices1 = choices1.slice(1,-1).split(",");
-                                const items = []
-                                //iterates through choices1 and stores each choice as a key-value pair within an option
-                                for (const [index, value] of choices1.entries()) {
-                                  items.push(<option key={index} value={value}>{value}</option>);
-                                }
-                                return (
-                                        <div className="options">
-                                            <select className="DropDownBox" onChange={this.HandleDropDown}>
-                                            {items}
-                                            </select>
-                                        </div>
-                                    )
-                            }
-                        })}
-                        <br/>
-                        <span>Additional Comments</span>
-                        <br/>
-                        <textarea className="AddCommentsBox" onChange={this.HandleComments}></textarea>
-                        <br/>
-                        <button type='submit' className="Database Tracking">Start Tracking</button>
-                    </form>
-                    </div>
+        <div className = "User_Buttons">
+        <a href="/users/register/" target="_parent"> <button className = "User_Create">Create User</button></a>
+        <br/>
+        <Button className="User_Change" onClick={this.UserChange.bind(this)}><b>Change User Details</b></Button>
+        <br/>
+        <a href="/users/delete/" target="_parent"><button className = "User_Delete">Delete User</button></a> 
+
+          <div className = "Exit">
+              <a href="/home/" target="_parent"> <button className = "Exit">Go back to homescreen</button></a>
+          </div>
+        
                     {
                       //Displays send to database only if 'stopped has been set to true'
                     }
                     {(stopped?
-                    <div className = 'SubConfirmation'>
-                      <p>Project - {this.state.user_Selection}</p>
-                      <p>Additional Comments - {this.state.add_Comments}</p>
-                    <p>Logged Time - {formattedSeconds(this.state.loggedtime)}</p>
-                    <Button onClick={this.onStopConfirmed} className="Send">Send to Database</Button>
-                    </div>
+                    <div>
+                <p>Edit fields required, leave others blank</p>
+                <div>
+                    <p>First Name</p>
+                    <textarea className="First_name"></textarea><br/>
+                    <p>Last Name</p>
+                    <textarea className="Last_name"></textarea><br/>
+                    <p>Email ID</p>
+                    <textarea className="Email"></textarea><br/>
+                    <p>Rank</p>
+                    <select className="User_type">
+                        <option key="Admin">Admin</option>
+                        <option key="MGR">Manager</option>
+                        <option key="HR">HR</option>
+                        <option key="Employee">Employee</option>
+                    </select>
+                </div>
+                  <button onclick="">Make Changes</button>
+                </div>
                     :
                     <div></div>
                     )}
             </div>
+    </div>
     </div>
          );
      }
