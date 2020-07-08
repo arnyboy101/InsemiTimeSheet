@@ -15,3 +15,7 @@ class UserDef(AbstractUser):
     user_type = models.CharField(max_length=2048, choices=USER_TYPES)
     created_at = models.DateTimeField(auto_now_add=True)
     previous_login = models.DateTimeField()
+    
+
+class LoginCount(models.Model):
+    lc = models.IntegerField(unique=True)
