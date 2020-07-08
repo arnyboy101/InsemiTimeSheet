@@ -4,72 +4,43 @@ class HomeScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            employeeId:0,
+            employeeId: -1,
             data:[{place_holder:0}],
             placeholder:"",
             loaded:false,
-            date_now:new Date()
+            logged_in: localStorage.getItem('token')? true:false
+            
         };
     }
     componentDidMount()
     {
-        fetch("/users/api/")
-        .then(response => {
-            if(response.status > 400) {
-                return this.setState(() => {
-                    return {placeholder:"Something went wrong!"};
-                });
-            }
-            return response.json();
-        })
-        .then(data => {
-            this.setState(()=> {
-                return {
-                    data,
-                    loaded: true
-                };
-            });
-        });
+        if (this.state.logged_in) {
+            fetch('/users/current/', {
+              headers: {
+                Authorization: `JWT ${localStorage.getItem('token')}`
+              }
+            })
+              .then(res => res.json())
+              .then(json => {
+                this.setState({ data:json });
+              });
+          }
     }
+
+        
+    
+    
     render(){
         return(
             <div>
                 <div className = "Settings">
                     <a href="/users/settings/" target="_parent"><button className="SettingsButton">Settings</button></a>
                 </div>
-                {this.state.data.map(userDetails => {
-                    let f_name = userDetails.first_name;
-                    let dateconv = (dateapi) => (new Date(dateapi))
-                    let usertype = userDetails.user_type;
-                    let datenow = new Date()
-                    if(f_name != null)
-                    {   
-                            return(
-                                <div className = "Greeting">
-                                    {console.log(dateconv(userDetails.previous_login))}
-                                    {console.log(datenow)}
-                                    {((dateconv(userDetails.previous_login).getMonth()==this.state.date_now.getMonth()) && 
-                                    (dateconv(userDetails.previous_login).getDate()==this.state.date_now.getDate()) && 
-                                    (dateconv(userDetails.previous_login).getFullYear()==this.state.date_now.getFullYear()) && 
-                                    (dateconv(userDetails.previous_login).getMinutes()==this.state.date_now.getMinutes()) && 
-                                    (dateconv(userDetails.previous_login).getHours() == this.state.date_now.getHours()) && 
-                                    ((dateconv(userDetails.previous_login).getSeconds() > this.state.date_now.getSeconds()-60) &&
-                                    (dateconv(userDetails.previous_login).getSeconds() < this.state.date_now.getSeconds()+60)) &&
-                                    (usertype=='Admin')
-                                    )?
-                                        <div>
-                                            <h1> hi {f_name}! </h1>
-                                            <p> Designation - {userDetails.user_type} </p>
-                                        <a href="/users/userfunc/" target="_parent"> <button className = "User" type="button">User Function</button></a>
-                                        </div>
-                                        :
-                                        <div>
-                                        </div>
-                                    }
-                                </div> 
-                            );
-                    }
-                })}
+                { (this.state.data.first_name!=null)?
+                    <h1>Hello {this.state.data.first_name}!</h1>:<div></div>
+                }
+
+
                 <div className = "Menu">
                 <a href="/calendar/" target="_parent"> <button className = "Calendar" type="button">View Calendar</button></a>
                 <br/>
