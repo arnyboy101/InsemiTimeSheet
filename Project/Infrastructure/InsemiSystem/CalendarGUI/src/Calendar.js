@@ -40,12 +40,26 @@ class Calendar extends Component{
       selected_Date : new Date(),
       data : [{place_holder:0}],
       loaded : false,
-      employee_id: 0,
+      employee_id: -1,
+      temp_search:0,
+      logged_in: localStorage.getItem('token')? true:false
     };
  }
 
  componentDidMount(){
-  this.API();
+  this.getAPI();
+  if(this.state.logged_in)
+  {
+    fetch('/users/current/', {
+      headers: {
+        Authorization: `JWT ${localStorage.getItem('token')}`
+      }
+    })
+      .then(res => res.json())
+      .then(json => {
+        this.setState({ employee_id:json.employeeId });
+      });
+  }
  }
 
  renderHeader() {
@@ -130,8 +144,12 @@ renderCells() {
   return <div className="body">{rows}</div>;
 }
 
-idSearch = (event) => {
-  this.setState({employee_id:event.target.value})
+idSearch = () => {
+  this.setState({employee_id:this.state.temp_search})
+}
+
+idStore = (event) => {
+  this.setState({temp_search:event.target.value})
 }
 
 
@@ -150,7 +168,8 @@ renderPane()
       <div>
           <span>Enter ID</span>
           <br/>
-          <textarea className="IdSearch" onChange={this.idSearch}></textarea>
+          <textarea className="IdSearch" onChange={this.idStore}></textarea>
+          <button onClick={this.idSearch}>Submit!</button>
         </div>
       <Panel header="Activity Report" collapsible shaded>
         
@@ -162,7 +181,11 @@ renderPane()
           
           return(
                    <div className='Activites' key={activity.id}>
-                      {((date1(activity.created_at).getMonth() == this.state.selected_Date.getMonth()) && (date1(activity.created_at).getDate() == this.state.selected_Date.getDate())&&(date1(activity.created_at).getFullYear() == this.state.selected_Date.getFullYear()) && (this.state.employee_id==activity.employeeId))? <p>{activity.Project} -  <br/> {activity.AddComments} </p>:<p></p>}  
+                      {((date1(activity.created_at).getMonth() == this.state.selected_Date.getMonth()) && 
+                      (date1(activity.created_at).getDate() == this.state.selected_Date.getDate())&&
+                      (date1(activity.created_at).getFullYear() == this.state.selected_Date.getFullYear()) &&
+                      (this.state.employee_id==activity.employeeId))? 
+                      <p>{activity.Project} -  <br/> {activity.AddComments} </p>:<p></p>}  
                     
                   </div>
                   

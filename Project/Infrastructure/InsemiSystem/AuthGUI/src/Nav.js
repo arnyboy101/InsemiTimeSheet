@@ -9,9 +9,10 @@ function Nav(props) {
   );
 
   const logged_in_nav = (
-    <ul>
-      <li onClick={props.handle_logout}>logout</li>
-    </ul>
+    <div>
+      <button onClick={props.handle_logout}>logout</button>
+      <a href='/home/'><button>Proceed to Home</button></a>
+    </div>
   );
   return <div>{props.logged_in ? logged_in_nav : logged_out_nav}</div>;
 }
