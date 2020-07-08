@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './HomeScreen.css';
-
 class HomeScreen extends Component {
     constructor(props) {
         super(props);
@@ -13,7 +12,6 @@ class HomeScreen extends Component {
             
         };
     }
-
     componentDidMount()
     {
         if (this.state.logged_in) {
@@ -35,7 +33,6 @@ class HomeScreen extends Component {
     render(){
         return(
             <div>
-
                 <div className = "Settings">
                     <a href="/users/settings/" target="_parent"><button className="SettingsButton">Settings</button></a>
                 </div>
@@ -51,15 +48,12 @@ class HomeScreen extends Component {
                 <br/>
                 <a href="/export/" target="_parent"><button className = "Export">Export Files</button></a> 
                 </div>
-
                 <div className = "Notice">
                     {//Notice Board Goes Here
                     }
                 </div>
-
             </div>
         );
     }
 }
-
 export default HomeScreen;

@@ -56,6 +56,14 @@ def check(request):
 
 def settings(request):
     return render(request,'UserModel/settings.html')
+
+def userfunc(request):
+    #if user.user_type == "Admin":
+    return render(request,'UserModel/userfunc.html')
+    #else:
+     #   return HttpResponseNotFound("<p> You are not authorised to access this function </p>")
+
+
         
 
 class UserListCreate(generics.ListCreateAPIView):

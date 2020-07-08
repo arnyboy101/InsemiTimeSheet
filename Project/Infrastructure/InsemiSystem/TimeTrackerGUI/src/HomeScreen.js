@@ -1,19 +1,15 @@
-
 import React from 'react';
 import Cookies from 'js-cookie'
 const Button = (props) =>
   <button type="button" {...props} className={ props.className } />;
-
 const formattedSeconds = (sec) => 
   ('0'+Math.floor(sec/3600)).slice(-2) +
   ':' +
   ('0'+ Math.floor(sec/60)%60).slice(-2) +
   ':' +
   ('0' + sec%60).slice(-2)
-  
 let stopped = false;  
 class HomeScreen extends React.Component {
-
     constructor(props){
         super(props);
         this.state = {
@@ -32,7 +28,6 @@ class HomeScreen extends React.Component {
         };
         this.incrementer = null;
     }
-
     //Send to Database Button 
     onStopConfirmed = ()=>{
             let stop = confirm('Are you sure you want to submit?');
@@ -60,10 +55,6 @@ class HomeScreen extends React.Component {
               })
             }
         }
-    
-
-
-   
     //Fetches choices - Parsing by HLU needs to be implemented   
     componentDidMount() {
         fetch("/timetracker/api/Choices/")
@@ -79,34 +70,28 @@ class HomeScreen extends React.Component {
           this.setState(() => {
             return {
               data,
-
               loaded: true
             };
           });
         });
         console.log("Data - "+this.state.data);
     }
-    
       //Handles STOP button
       handleStopClick() {
         let stop = confirm("You are about to stop this project");
         if (stop==true){
         clearInterval(this.incrementer);
-        
         this.setState({
           loggedtime:this.state.secondsElapsed,
-        
           lastClearedIncrementer: this.incrementer,
           secondsElapsed: 0
         });
         //Activates Send Database Panel
         stopped = true;   
-
         }
       }
       //Handles the 'Start Tracking' button
      HandleSubmit = (event) => {
-      
         event.preventDefault();
         if(confirm("You are selecting " + this.state.drop_down_value + " Project")){
         this.setState({user_Selection:this.state.drop_down_value, add_Comments:this.state.comments_value});
@@ -125,7 +110,6 @@ class HomeScreen extends React.Component {
      HandleComments = (event) => {
        this.setState({comments_value:event.target.value})
      }
-
      render(){
          return(
     <div className = 'AppBoi'>
@@ -136,9 +120,7 @@ class HomeScreen extends React.Component {
         <div className="TTForm">
                 <div className='TTFORMDATA'>
                     <form onSubmit={this.HandleSubmit}>
-                    
                         <span>Select Your Project:</span>
-
                         {this.state.data.map(choiceList => {
                           //Stores tthe choices in local variable
                             let choices1 = choiceList.choices;
@@ -153,7 +135,6 @@ class HomeScreen extends React.Component {
                                   items.push(<option key={index} value={value}>{value}</option>);
                                 }
                                 return (
-                                    
                                         <div className="options">
                                             <select className="DropDownBox" onChange={this.HandleDropDown}>
                                             {items}
@@ -162,17 +143,12 @@ class HomeScreen extends React.Component {
                                     )
                             }
                         })}
-                                
-                        
-                            
-                        
                         <br/>
                         <span>Additional Comments</span>
                         <br/>
                         <textarea className="AddCommentsBox" onChange={this.HandleComments}></textarea>
                         <br/>
                         <button type='submit' className="Database Tracking">Start Tracking</button>
-                        
                     </form>
                     </div>
                     {
@@ -192,8 +168,5 @@ class HomeScreen extends React.Component {
     </div>
          );
      }
-      
-
 }
-
-export default HomeScreen;
+export default HomeScreen
