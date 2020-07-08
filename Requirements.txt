@@ -1,0 +1,16 @@
+Company - Insemi Technology (a 450+ employee start-up)
+Benefits - 
+Mentorship from CEO, Arup Dash
+Certificate of Completion
+Experience gained on working on a large-scale, open-source project.
+Will look great on your college application.
+Duration of Internship - 18/07/2020 - 18/08/2020 (Could be extended)
+Prequisites -
+Python
+Expected to Learn Before Start of Internship -
+1. Django (A full-stack web development library for Python)
+2. Basic Syntax for HTML/CSS
+3. Basic JavaScript Syntax
+4. React (A fronted webpage development library for JavaScript)
+5. Basic Knowledge of How RESTFUL APIs work
+
