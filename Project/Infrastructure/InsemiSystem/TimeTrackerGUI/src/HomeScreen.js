@@ -24,7 +24,10 @@ class HomeScreen extends React.Component {
             data:[{place_holder:0}],
             placeholder:"",            
             loaded:false,
-            runCount:0
+            runCount:0,
+            employee_id:-1,
+            logged_in: localStorage.getItem('token')? true:false
+
         };
         this.incrementer = null;
     }
@@ -35,7 +38,7 @@ class HomeScreen extends React.Component {
             if(stop==true){
               //Posts the data into the database in the below format
             let data2 = {
-                employeeId:0,
+                employeeId:this.state.employee_id,
                 Project:this.state.user_Selection,
                 AddComments:this.state.add_Comments,
                 logged_time:this.state.loggedtime
@@ -75,6 +78,18 @@ class HomeScreen extends React.Component {
           });
         });
         console.log("Data - "+this.state.data);
+        if(this.state.logged_in)
+        {
+          fetch('/users/current/', {
+            headers: {
+              Authorization: `JWT ${localStorage.getItem('token')}`
+            }
+          })
+            .then(res => res.json())
+            .then(json => {
+              this.setState({ employee_id:json.employeeId });
+            });
+        } 
     }
       //Handles STOP button
       handleStopClick() {

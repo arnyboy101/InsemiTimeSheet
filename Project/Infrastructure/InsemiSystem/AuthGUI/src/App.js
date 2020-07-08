@@ -106,6 +106,7 @@ class App extends Component {
         />
         {form}
        {console.log(this.state.logged_in)}
+       
       </div>
     );
   }
