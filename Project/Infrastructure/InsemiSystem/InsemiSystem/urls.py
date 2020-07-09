@@ -30,7 +30,6 @@ urlpatterns = [
     path('auth',include('AuthGUI.urls'))
     #path('P/',include('P.urls'))
     
-
     
 
 ]

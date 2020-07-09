@@ -5,51 +5,166 @@
                 flex:1;
                 justify-content: center;
                 align-self: center;
-                background-color: bisque;
+<<<<<<< Updated upstream
+                background-color: aliceblue;
+=======
+                background-color: #008080;
+>>>>>>> Stashed changes
                 border-color: black;
             }
+                .SettingsButton
+                {
+                    background-color: #94ffd6;
+                    border-radius: .25rem;                    
+                }
             .Menu
             {
-                display: flex;
-                flex-direction: row;
+               
+                display:flex;
+                flex-wrap: wrap;
                 justify-content: center;
+<<<<<<< Updated upstream
                 align-items: center;
-                width: 500px;
-                height: 700px;
+                width: 5000px;
+                height: 7000px;
                 margin:auto;
-                background-color: burlywood;
+                background-color: azure;
                 border-color: black;
+=======
+                background-color: mediumturquoise;
+                flex-direction: column;
+               
+>>>>>>> Stashed changes
 
             }   
-               
-               .Calendar
+
+                .CalendarCard
                 {
+<<<<<<< Updated upstream
                     
                    flex:1;
                    justify-content: start;
                    align-self: center;
-                   background-color: bisque;
+                   background-color: aliceblue;
                    border-color: black;
                 
+=======
+                    border-style: solid;
+                    border-color: black;
+                    background-color: #008080;
+                    overflow: hidden;
+                    box-shadow: 0px 2px 8px 0px var(--cls-gray-light);
+                    text-align: center;
+                    border-radius: 1rem;
+                    position: relative;
+                    width: -webkit-fill-available;
+                    margin-bottom: 1rem;
+                    justify-content: space-between;
+                    align-self: flex-end;
+                    margin: 2rem;
+                    padding: .5rem;
+>>>>>>> Stashed changes
 
                 }
-                .TimeTracker
+               
+                    .Calendar
+                    {
+                            
+                        flex:1;
+                        justify-content: flex-start;
+                        align-self: center;
+                        background-color: #94ffd6;
+                        border-color: black;
+                        height: 50px;
+                        width: 200;
+                        text-align: center;
+                        margin: 10px;
+                        font-weight: bold;
+                        font-size: 1rem;
+                        border-radius: .5rem;
+                   
+                    }
+                .TimeTrackerCard
                 {
+<<<<<<< Updated upstream
                     
                     flex:1;
                     justify-content: center;
                     align-self: center;
-                    background-color: bisque;
+                    background-color: aliceblue;
+=======
+                    border-style: solid;
+>>>>>>> Stashed changes
                     border-color: black;
-                   
+                    background-color: #008080;
+                    overflow: hidden;
+                    box-shadow: 0px 2px 8px 0px var(--cls-gray-light);
+                    text-align: center;
+                    border-radius: 1rem;
+                    position: relative;
+                    width: -webkit-fill-available;
+                    margin-bottom: 1rem;
+                    justify-content: space-between;
+                    align-self: flex-end;
+                    margin: 2rem;
+                    padding: .5rem;
                 }
-                .Export
+                    .TimeTracker
+                    {
+                        
+                        flex:1;
+                        justify-content: center;
+                        align-self: center;
+                        background-color: #94ffd6;
+                        border-color: black;
+                        height: 50px;
+                        width: 200;
+                        text-align: center;
+                        margin: 10px;
+                        font-weight: bold;
+                        font-size: 1rem;
+                        border-radius: .5rem;
+                    }
+                .ExportCard
                 {
+<<<<<<< Updated upstream
                     
                     flex:1;
                     justify-content: end;
                     align-self: center;
-                    background-color: bisque;
-                    border-color: black;
+                    background-color: aliceblue;
                    
                 }
+=======
+                    border-style: solid;
+                    border-color: black;
+                    background-color: #008080;
+                    overflow: hidden;
+                    box-shadow: 0px 2px 8px 0px var(--cls-gray-light);
+                    text-align: center;
+                    border-radius: 1rem;
+                    position: relative;
+                    width: -webkit-fill-available;
+                    margin-bottom: 1rem;
+                    justify-content: space-between;
+                    align-self: flex-end;
+                    margin: 2rem;
+                    padding: .5rem;
+                }
+                    .Export
+                    {
+                        
+                        flex:1;
+                        justify-content: flex-end;
+                        align-self: center;
+                        background-color: #94ffd6;
+                        border-color: black;
+                        height: 50px;
+                        width: 200;
+                        text-align: center;
+                        margin: 10px;
+                        font-weight: bold;
+                        font-size: 1rem;
+                        border-radius: .5rem;
+                    }
+>>>>>>> Stashed changes
