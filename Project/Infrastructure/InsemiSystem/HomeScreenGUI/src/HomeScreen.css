@@ -5,11 +5,7 @@
                 flex:1;
                 justify-content: center;
                 align-self: center;
-<<<<<<< Updated upstream
-                background-color: aliceblue;
-=======
                 background-color: #008080;
->>>>>>> Stashed changes
                 border-color: black;
             }
                 .SettingsButton
@@ -23,32 +19,14 @@
                 display:flex;
                 flex-wrap: wrap;
                 justify-content: center;
-<<<<<<< Updated upstream
-                align-items: center;
-                width: 5000px;
-                height: 7000px;
-                margin:auto;
-                background-color: azure;
-                border-color: black;
-=======
                 background-color: mediumturquoise;
                 flex-direction: column;
                
->>>>>>> Stashed changes
 
             }   
 
                 .CalendarCard
                 {
-<<<<<<< Updated upstream
-                    
-                   flex:1;
-                   justify-content: start;
-                   align-self: center;
-                   background-color: aliceblue;
-                   border-color: black;
-                
-=======
                     border-style: solid;
                     border-color: black;
                     background-color: #008080;
@@ -63,7 +41,6 @@
                     align-self: flex-end;
                     margin: 2rem;
                     padding: .5rem;
->>>>>>> Stashed changes
 
                 }
                
@@ -86,15 +63,7 @@
                     }
                 .TimeTrackerCard
                 {
-<<<<<<< Updated upstream
-                    
-                    flex:1;
-                    justify-content: center;
-                    align-self: center;
-                    background-color: aliceblue;
-=======
                     border-style: solid;
->>>>>>> Stashed changes
                     border-color: black;
                     background-color: #008080;
                     overflow: hidden;
@@ -127,15 +96,6 @@
                     }
                 .ExportCard
                 {
-<<<<<<< Updated upstream
-                    
-                    flex:1;
-                    justify-content: end;
-                    align-self: center;
-                    background-color: aliceblue;
-                   
-                }
-=======
                     border-style: solid;
                     border-color: black;
                     background-color: #008080;
@@ -167,4 +127,3 @@
                         font-size: 1rem;
                         border-radius: .5rem;
                     }
->>>>>>> Stashed changes

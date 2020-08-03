@@ -6,7 +6,7 @@ from django.shortcuts import render
 from django.template.context_processors import request
 from django.views.generic import *
 from .forms import *
-from rest_framework import generics
+from rest_framework import generics, permissions
 from .serializers import *
 from datetime import datetime
 from rest_framework import permissions, status
@@ -75,7 +75,7 @@ def current_user(request):
     """
     Determine the current user by their token, and return their data
     """
-    
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     serializer = UserDefSerializer(request.user)
     return Response(serializer.data)
 

@@ -1,4 +1,4 @@
-import App from "./components/App";
+
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -9,13 +9,13 @@ import HomeScreen from './HomeScreen';
 
 
 
-/*
+
 const App = () => (
 <div>
 <HomeScreen />
 </div>
 );
-*/
+
 
 
 ReactDOM.render(
