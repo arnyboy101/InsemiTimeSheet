@@ -24,7 +24,7 @@ class RegisterView(CreateView):
     def form_valid(self,form):
         user = form.save()
 
-        return redirect('/users/login/')
+        return redirect('/auth/')
 
 def login_page(request):
     model = UserDef

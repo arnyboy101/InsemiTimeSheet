@@ -27,7 +27,7 @@ urlpatterns = [
     path('users/', include('UserModel.urls')),
     path('userfunc/', include('UserFunctionsGUI.urls')),
     path('token-auth/', obtain_jwt_token),
-    path('auth',include('AuthGUI.urls'))
+    path('auth/',include('AuthGUI.urls'))
     #path('P/',include('P.urls'))
     
     
