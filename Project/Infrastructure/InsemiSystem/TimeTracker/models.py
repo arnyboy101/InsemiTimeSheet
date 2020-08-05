@@ -11,7 +11,7 @@ class Activity(models.Model):
     logged_time = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     
-class Choices(models.Model):
+class Choice(models.Model):
     choices = ListCharField(
         base_field=models.CharField(max_length=256),
         size=6,
