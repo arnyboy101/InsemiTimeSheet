@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'HomeScreenGUI',
-    'TimeTracker',
+    'TimeSheet',
     'TimeTrackerGUI',
     'ExportGUI',
     'CalendarGUI',
