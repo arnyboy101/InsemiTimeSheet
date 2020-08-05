@@ -39,7 +39,9 @@ class Calendar extends Component{
       current_Month : new Date(),
       selected_Date : new Date(),
       data : [{place_holder:0}],
+      choices : [{place_holder:0}],
       loaded : false,
+      choices_loaded: false,
       employee_id: -1,
       temp_search:0,
       logged_in: localStorage.getItem('token')? true:false
@@ -47,7 +49,7 @@ class Calendar extends Component{
  }
 
  componentDidMount(){
-  this.getAPI();
+  this.getAPIs();
   if(this.state.logged_in)
   {
     fetch('/users/current/', {
@@ -153,6 +155,7 @@ idStore = (event) => {
 }
 
 
+
 renderPane()
 {
   const dateFormat = "dd/MM/yyyy";
@@ -172,9 +175,10 @@ renderPane()
           <button onClick={this.idSearch}>Submit!</button>
         </div>
       <Panel header="Activity Report" collapsible shaded>
+        <div>
+        {(this.state.data != null)?
         
-
-        {this.state.data.map(activity => {
+        this.state.data.map(activity => {
           
           let date1 = (dateapi) => (new Date(dateapi))
           
@@ -190,10 +194,63 @@ renderPane()
                   </div>
                   
             
-             ); 
-        })}
+             );
+           
+                      
+        })
+        :
+        
+          <div>
+          </div>
+      
+      }
+      </div>
         </Panel>
       </div>
+      <div>
+    <Panel header="Entry" collapsible shaded>
+      <form>
+      <span>
+      {
+      (this.state.choices!=null)?
+      this.state.choices.map(choiceList => {
+      //Stores tthe choices in local variable
+        let choices1 = choiceList.choices;
+        //Only runs if choices are fetched
+        if (choices1!=null)
+        {
+            //Splits words into an array and removes the '[]'
+            choices1 = choices1.slice(1,-1).split(",");
+            const items = []
+            //iterates through choices1 and stores each choice as a key-value pair within an option
+            for (const [index, value] of choices1.entries()) {
+              items.push(<option key={index} value={value}>{value}</option>);
+            }
+            return (
+                    <div className="options">
+                        <select className="DropDownBox" onChange={this.HandleDropDown}>
+                        {items}
+                        </select>
+                    </div>
+                )
+        }
+      })
+      :
+      <div></div>
+    }
+      </span>
+      <span><label htmlFor="Start Time">Starting Time</label><input type="time" id="Start Time"/></span>
+      <span><label htmlFor="End Time">Starting Time</label><input type="time" id="End Time"/></span>
+      <span>Total Working Hours:</span>
+      <span><select className="Status">
+            <option key = "1" value="WFO">Work From Office</option>
+            <option key = "2" value="WFH">Work From Home</option>
+        </select></span>
+      <span><label htmlFor="Remarks">Remarks</label><textarea id = "Remarks"></textarea></span>
+      <span><input type="submit"></input></span>
+      </form>
+    </Panel>
+  </div>
     </div>
   );
 }
@@ -207,7 +264,7 @@ renderPane()
   
 };
 
-getAPI = () => {
+getAPIs = () => {
   fetch('/timetracker/api/TimeTracker/allObjects/',{
     }).then(response => {
       if (response.status > 400) {
@@ -224,6 +281,24 @@ getAPI = () => {
         };
       });
     });
+
+    fetch("/timetracker/api/Choices/")
+        .then(response => {
+          if (response.status > 400) {
+            return this.setState(() => {
+              return { placeholder: "Something went wrong!" };
+            });
+          }
+          return response.json();
+        })
+        .then(choices => {
+          this.setState(() => {
+            return {
+              choices,
+              choices_loaded: true
+            };
+          });
+        });
 }
 
 nextMonth = () => {
@@ -246,6 +321,7 @@ render() {
       {this.renderDays()}
       {this.renderCells()}
       {this.renderPane()}
+      
     </div>
   );
 }
