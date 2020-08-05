@@ -1,8 +1,8 @@
 
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import HomeScreen from './HomeScreen';
-
 
 
 
@@ -15,6 +15,8 @@ const App = () => (
 <HomeScreen />
 </div>
 );
+
+
 
 ReactDOM.render(
   <React.StrictMode>

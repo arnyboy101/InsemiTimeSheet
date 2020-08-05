@@ -11,7 +11,7 @@ class RegisterForm(UserCreationForm):
     empId = forms.IntegerField(label='Employee ID')    
     fname = forms.CharField(label='First Name', max_length=256)
     lname = forms.CharField(label='Last Name', max_length=256)
-    USER_TYPES = [("Admin","Admin"), ('Director',"Director"), ('Sr. Manager',"Sr. Manager"), ('Manager',"Manager") , ('Sr. Engineer',"Sr. Engineer"), ('Assistant Regional Manager',"Assistant Regional Manager"), ('Assistant to the Regional Manager',"Assistant to the Regional Manager")]
+    USER_TYPES = [("Admin","Admin"), ('Manager',"Manager"), ('HR', 'Human Resources'), ('Employee','Employee')]
     ut = forms.CharField(label = 'User Type', widget = forms.Select(choices=USER_TYPES))
 
 
