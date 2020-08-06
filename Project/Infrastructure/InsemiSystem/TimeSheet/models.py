@@ -3,7 +3,7 @@ from django_mysql.models import ListCharField
 
 # Create your models here.
 
-
+status_choices = ["WFH","WFO","Earned Leave","Sick Leave","Maternity Leave","Paternity Leave","Emergency Leave"]
 class Activity(models.Model):
     employeeId = models.CharField(max_length = 64, default=None)
     employeeName = models.CharField(max_length = 256, default=None)
