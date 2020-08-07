@@ -180,13 +180,19 @@ renderPane()
           
           
           return(
-                   <div className='Activites' key={activity.id}>
-                      {((date1(activity.created_at).getMonth() == this.state.selected_Date.getMonth()) && 
-                      (date1(activity.created_at).getDate() == this.state.selected_Date.getDate())&&
-                      (date1(activity.created_at).getFullYear() == this.state.selected_Date.getFullYear()) &&
-                      (this.state.employee_id==activity.employeeId))? 
-                      <p>{activity.Project} -  <br/> {activity.AddComments} </p>:<p></p>}  
-                    
+                 <div className='Activites' key={activity.id}>
+                    {
+                      //((date1(activity.Opening_time).getMonth() == this.state.selected_Date.getMonth()) && 
+                      //(date1(activity.Opening_time).getDate() == this.state.selected_Date.getDate()) &&
+                      //(date1(activity.Opening_time).getFullYear() == this.state.selected_Date.getFullYear()) &&
+                      //(date1(activity.Closing_time).getMonth() == this.state.selected_Date.getMonth()) && 
+                      //(date1(activity.Closing_time).getDate() == this.state.selected_Date.getDate()) &&
+                      //(date1(activity.Closing_time).getFullYear() == this.state.selected_Date.getFullYear()) &&
+                      //(this.state.employee_id==activity.employeeId)) ?
+                      //<div><p>{activity.Project_code}</p><p>{activity.Status}</p><p>{activity.Remarks}</p></div>
+                      //: <p>bruh</p>
+                      <p>hello let this work plz</p>
+                     }
                   </div>
                   
             
