@@ -20,7 +20,7 @@ from rest_framework_jwt.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', include('HomeScreenGUI.urls')),
-    path('timetracker/',include('TimeTracker.urls')),
+    path('timetracker/',include('Time.urls')),
     path('ttgui/',include('TimeTrackerGUI.urls')),
     path('export/',include('ExportGUI.urls')),
     path('calendar/',include('CalendarGUI.urls')),

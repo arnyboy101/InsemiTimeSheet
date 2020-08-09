@@ -4,10 +4,10 @@ from .models import *
 class ActivitySerializer(serializers.ModelSerializer):
     class Meta:
         model = Activity
-        fields = ('id','employeeId','Project','AddComments','logged_time', 'created_at',)
+        fields = ('id','employeeId','Project_code','Date','Opening_time','Closing_time','Total_hours','Status','Remarks')
 
 
 class ChoicesSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Choice
+        model = Choices
         fields = ('id','choices')

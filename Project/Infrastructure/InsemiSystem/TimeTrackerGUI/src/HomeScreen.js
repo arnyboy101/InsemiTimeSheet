@@ -59,6 +59,7 @@ class HomeScreen extends React.Component {
             }
         }
     //Fetches choices - Parsing by HLU needs to be implemented   
+    
     componentDidMount() {
         fetch("/timetracker/api/Choices/")
         .then(response => {
@@ -91,6 +92,7 @@ class HomeScreen extends React.Component {
             });
         } 
     }
+    
       //Handles STOP button
       handleStopClick() {
         let stop = confirm("You are about to stop this project");

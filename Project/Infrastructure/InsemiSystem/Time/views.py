@@ -12,7 +12,7 @@ class ActivityListCreate(generics.ListCreateAPIView):
 
 class ChoicesListCreate(generics.ListCreateAPIView):
     permission_classes = (permissions.AllowAny,)
-    queryset = Choice.objects.all()
+    queryset = Choices.objects.all()
     serializer_class = ChoicesSerializer
 
 
