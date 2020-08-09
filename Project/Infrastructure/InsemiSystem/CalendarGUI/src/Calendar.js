@@ -44,7 +44,16 @@ class Calendar extends Component{
       choices_loaded: false,
       employee_id: -1,
       temp_search:0,
-      logged_in: localStorage.getItem('token')? true:false
+      logged_in: localStorage.getItem('token')? true:false,
+      temp_start_time:0,
+      start_time:0,
+      temp_end_time:0,
+      end_time:0,
+      temp_status:"",
+      status:"",
+      temp_remarks:"",
+      remarks:""
+
     };
  }
 
@@ -154,8 +163,42 @@ idStore = (event) => {
   this.setState({temp_search:event.target.value})
 }
 
+handleStartTime = (event) => {
+  this.setState({temp_start_time:event.target.value})
+}
 
+handleEndTime = (event) => {
+  this.setState({temp_end_time:event.target.value})
+}
 
+handleStatus = (event) => {
+  this.setState({temp_status:event.target.value})
+}
+
+handleRemarks = (event) => {
+  this.setState({temp_remarks:event.target.value})
+}
+
+handleEntrySumbit = (event) => {
+  event.preventDefault();
+  if(confirm("You are about to submit the following data - \n" + 
+  this.state.temp_start_time +
+  " to " +
+  this.state.temp_end_time +
+  " \n Status - " +
+  this.state.temp_status +
+  " \n Remarks - " +
+  this.state.temp_remarks)){
+   this.setState(
+      {
+        start_time:this.state.temp_start_time,
+        end_time:this.state.temp_end_time,
+        status:this.state.temp_status,
+        remarks:this.state.temp_remarks
+      }
+    )
+}
+}
 renderPane()
 {
   const dateFormat = "dd/MM/yyyy";
@@ -209,8 +252,18 @@ renderPane()
       </div>
       <div>
     <Panel header="Entry" collapsible shaded>
-      <form>
-      <span>
+      <form onSubmit={this.handleEntrySumbit}>
+      <table>
+      <tr>
+        <th>Project</th>
+        <th>Starting Time</th>
+        <th>Ending Time</th>
+
+        <th>Status</th>
+        <th>Remarks</th>
+      </tr> 
+      <tr>
+      <td>
       {
       (this.state.choices!=null)?
       this.state.choices.map(choiceList => {
@@ -238,19 +291,26 @@ renderPane()
       :
       <div></div>
     }
-      </span>
-      <span><label htmlFor="Start Time">Starting Time</label><input type="time" id="Start Time"/></span>
-      <span><label htmlFor="End Time">Starting Time</label><input type="time" id="End Time"/></span>
-      <span>Total Working Hours:</span>
-      <span><select className="Status">
+      </td>
+      <td><input type="time" id="Start Time" onChange={this.handleStartTime}/></td>
+      <td><input type="time" id="End Time" onChange={this.handleEndTime}/></td>
+      
+      <td><select className="Status" onChange={this.handleStatus}>
             <option key = "1" value="WFO">Work From Office</option>
             <option key = "2" value="WFH">Work From Home</option>
-        </select></span>
-      <span><label htmlFor="Remarks">Remarks</label><textarea id = "Remarks"></textarea></span>
-      <span><input type="submit"></input></span>
+        </select></td>
+      <td><textarea id = "Remarks" onChange={this.handleRemarks}></textarea></td>
+      
+      </tr>
+      <tr>
+      <td><input type="submit"></input></td>
+      </tr>
+      </table>
       </form>
     </Panel>
   </div>
+    {this.state.start_time}
+    {this.state.end_time}
     </div>
   );
 }
