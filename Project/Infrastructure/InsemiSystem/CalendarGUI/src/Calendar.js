@@ -14,12 +14,8 @@ import isSameDay from 'date-fns/isSameDay';
 import toDate from 'date-fns/toDate';
 import {Panel} from 'rsuite';
 import 'rsuite/dist/styles/rsuite-default.css';
-
 function MyApp() {
- 
- 
   const [value, onChange] = useState(new Date());
-
   return (
     <div>
       <Calendar
@@ -28,10 +24,7 @@ function MyApp() {
       />
     </div>
   );
-
 }
-
-
 class Calendar extends Component{
   constructor(props) {
     super(props);
@@ -45,7 +38,6 @@ class Calendar extends Component{
       logged_in: localStorage.getItem('token')? true:false
     };
  }
-
  componentDidMount(){
   this.getAPI();
   if(this.state.logged_in)
@@ -61,10 +53,8 @@ class Calendar extends Component{
       });
   }
  }
-
  renderHeader() {
   const dateFormat = "MMMM yyyy";
-
   return (
     <div className="header row flex-middle">
       <div className="col col-start">
@@ -81,13 +71,10 @@ class Calendar extends Component{
     </div>
   );
 }
-
 renderDays() {
   const dateFormat = "EEEE";
   const days = [];
-
   let startDate = startOfWeek(this.state.current_Month);
-
   for (let i = 0; i < 7; i++) {
     days.push(
       <div className="col col-center" key={i}>
@@ -95,24 +82,19 @@ renderDays() {
       </div>
     );
   }
-
   return <div className="days row">{days}</div>;
 }
-
 renderCells() {
   const { current_Month, selected_Date } = this.state;
   const monthStart = startOfMonth(current_Month);
   const monthEnd = endOfMonth(monthStart);
   const startDate = startOfWeek(monthStart);
   const endDate = endOfWeek(monthEnd);
-
   const dateFormat = "d";
   const rows = [];
-
   let days = [];
   let day = startDate;
   let formattedDate = "";
-
   while (day <= endDate) {
     for (let i = 0; i < 7; i++) {
       formattedDate = format(day, dateFormat);
@@ -126,7 +108,6 @@ renderCells() {
           }`}
           key={day}
           onClick={() => this.onDateClick(toDate(cloneDay))}
-          
         >
           <span className="number">{formattedDate}</span>
           <span className="bg">{formattedDate}</span>
@@ -143,25 +124,16 @@ renderCells() {
   }
   return <div className="body">{rows}</div>;
 }
-
 idSearch = () => {
   this.setState({employee_id:this.state.temp_search})
 }
-
 idStore = (event) => {
   this.setState({temp_search:event.target.value})
 }
-
-
 renderPane()
 {
   const dateFormat = "dd/MM/yyyy";
-  
   const formattedDate = format(this.state.selected_Date, dateFormat);
-  
-
-
-
   return(
     <div>
       <div>
@@ -172,41 +144,33 @@ renderPane()
           <button onClick={this.idSearch}>Submit!</button>
         </div>
       <Panel header="Activity Report" collapsible shaded>
-        
-
         {this.state.data.map(activity => {
-          
           let date1 = (dateapi) => (new Date(dateapi))
-          
-          
           return(
-                   <div className='Activites' key={activity.id}>
-                      {((date1(activity.created_at).getMonth() == this.state.selected_Date.getMonth()) && 
-                      (date1(activity.created_at).getDate() == this.state.selected_Date.getDate())&&
-                      (date1(activity.created_at).getFullYear() == this.state.selected_Date.getFullYear()) &&
-                      (this.state.employee_id==activity.employeeId))? 
-                      <p>{activity.Project} -  <br/> {activity.AddComments} </p>:<p></p>}  
-                    
+                 <div className='Activites' key={activity.id}>
+                    {
+                      ((date1(activity.Date).getMonth() == this.state.selected_Date.getMonth()) && 
+                      (date1(activity.Date).getDate() == this.state.selected_Date.getDate()) &&
+                      (date1(activity.Date).getFullYear() == this.state.selected_Date.getFullYear()) &&
+                      (this.state.employee_id==activity.employeeId)) ?
+                      <p>this works</p>
+                      //<div><p>{activity.Project_code}</p><p>{activity.Status}</p><p>{activity.Remarks}</p></div>
+                      :
+                      <p>this doesnt work</p>
+                    }
                   </div>
-                  
-            
              ); 
-        })}
+          })}
         </Panel>
       </div>
     </div>
   );
 }
-
  onDateClick = day => {
   this.setState({
     selected_Date: day
   });
-  
-  
-  
 };
-
 getAPI = () => {
   fetch('/timetracker/api/TimeTracker/allObjects/',{
     }).then(response => {
@@ -225,20 +189,16 @@ getAPI = () => {
       });
     });
 }
-
 nextMonth = () => {
   this.setState({
     current_Month: addMonths(this.state.current_Month, 1)
   });
 };
-
 prevMonth = () => {
   this.setState({
     current_Month: subMonths(this.state.current_Month, 1)
   });
 };
-
-
 render() {
   return (
     <div className="calendar">
@@ -249,7 +209,5 @@ render() {
     </div>
   );
 }
-
 }
-
 export default Calendar;
