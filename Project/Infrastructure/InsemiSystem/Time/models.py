@@ -16,10 +16,12 @@ class Activity(models.Model):
     
 
 class Choices(models.Model):
-    choices = ListCharField(
-        base_field=models.CharField(max_length=256),
-        size=15,
-        max_length=(15*257),
-    )
+    employeeId = models.CharField(max_length = 64, default=None)
+    Project_No = models.IntegerField(default=None)
+    Project_code = models.CharField(max_length = 256, default=None)
+    Project_name = models.CharField(max_length = 256, default=None)
+    Manager = models.CharField(max_length = 256, default=None)
+    Customer_name = models.CharField(max_length = 256, default=None)
+    Vendor_name = models.CharField(max_length = 256, default=None)
 
 

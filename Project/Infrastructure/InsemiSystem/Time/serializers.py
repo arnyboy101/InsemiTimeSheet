@@ -10,4 +10,4 @@ class ActivitySerializer(serializers.ModelSerializer):
 class ChoicesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Choices
-        fields = ('id','choices')
+        fields = ('employeeId','Project_No','Project_code','Project_name','Manager','Customer_name','Vendor_name')
