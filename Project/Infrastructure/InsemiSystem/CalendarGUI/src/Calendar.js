@@ -15,6 +15,8 @@ import toDate from 'date-fns/toDate';
 import {Panel, Carousel} from 'rsuite';
 import 'rsuite/dist/styles/rsuite-default.css';
 
+//let iterate = true;
+
 function MyApp() {
   const [value, onChange] = useState(new Date());
   return (
@@ -137,11 +139,9 @@ idStore = (event) => {
 Edit = () => {
   this.setState({edit:true})
 }
-
 Next = () => {
   this.setState({iterate:true})
 }
-
 makeFalse = () => {
   this.setState({iterate:false})
 }
@@ -161,7 +161,9 @@ renderPane()
         </div>
       <Panel header="Activity Report" collapsible shaded>
 
-        {this.state.data.map(activity => {
+        
+        {this.state.data!=null ?
+        this.state.data.map(activity => {
           let date1 = (dateapi) => (new Date(dateapi))
           return(
                  <div className='Activites'>
@@ -169,7 +171,7 @@ renderPane()
                       ((date1(activity.Date).getMonth() == this.state.selected_Date.getMonth()) && 
                       (date1(activity.Date).getDate() == this.state.selected_Date.getDate()) &&
                       (date1(activity.Date).getFullYear() == this.state.selected_Date.getFullYear()) &&
-                      (this.state.employee_id==activity.employeeId)  && (this.state.iterate==true)) ?
+                      (this.state.employee_id==activity.employeeId)  && (this.state.iterate)) ?
                       <div>
                         {this.makeFalse}
                         <p>Project Code: {activity.Project_code}</p>
@@ -182,15 +184,13 @@ renderPane()
                         <button onClick={this.Next}>Next</button>
                       </div>
                       :
-                      <div>
-                        not working
-                        {console.log(this.state.iterate)}
-                      </div>
+                      <div></div>
                       
                     }
                   </div>
              ); 
-          })}
+          }) : <div></div>
+        }
         </Panel>
       </div>
     </div>
