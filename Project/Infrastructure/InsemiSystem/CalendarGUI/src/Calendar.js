@@ -12,8 +12,9 @@ import subMonths from 'date-fns/subMonths';
 import addMonths from 'date-fns/addMonths';
 import isSameDay from 'date-fns/isSameDay';
 import toDate from 'date-fns/toDate';
-import {Panel} from 'rsuite';
+import {Panel, Carousel} from 'rsuite';
 import 'rsuite/dist/styles/rsuite-default.css';
+
 function MyApp() {
   const [value, onChange] = useState(new Date());
   return (
@@ -35,7 +36,9 @@ class Calendar extends Component{
       loaded : false,
       employee_id: -1,
       temp_search:0,
-      logged_in: localStorage.getItem('token')? true:false
+      logged_in: localStorage.getItem('token')? true:false,
+      edit:false,
+      iterate:true
     };
  }
  componentDidMount(){
@@ -130,6 +133,19 @@ idSearch = () => {
 idStore = (event) => {
   this.setState({temp_search:event.target.value})
 }
+
+Edit = () => {
+  this.setState({edit:true})
+}
+
+Next = () => {
+  this.setState({iterate:true})
+}
+
+makeFalse = () => {
+  this.setState({iterate:false})
+}
+
 renderPane()
 {
   const dateFormat = "dd/MM/yyyy";
@@ -140,23 +156,37 @@ renderPane()
       <div>
           <span>Enter ID</span>
           <br/>
-          <textarea className="IdSearch" onChange={this.idStore}></textarea>
+          <textarea className="IdSearch" onChange={this.idStore}></textarea> 
           <button onClick={this.idSearch}>Submit!</button>
         </div>
       <Panel header="Activity Report" collapsible shaded>
+
         {this.state.data.map(activity => {
           let date1 = (dateapi) => (new Date(dateapi))
           return(
-                 <div className='Activites' key={activity.id}>
+                 <div className='Activites'>
                     {
                       ((date1(activity.Date).getMonth() == this.state.selected_Date.getMonth()) && 
                       (date1(activity.Date).getDate() == this.state.selected_Date.getDate()) &&
                       (date1(activity.Date).getFullYear() == this.state.selected_Date.getFullYear()) &&
-                      (this.state.employee_id==activity.employeeId)) ?
-                      <p>this works</p>
-                      //<div><p>{activity.Project_code}</p><p>{activity.Status}</p><p>{activity.Remarks}</p></div>
+                      (this.state.employee_id==activity.employeeId)  && (this.state.iterate==true)) ?
+                      <div>
+                        {this.makeFalse}
+                        <p>Project Code: {activity.Project_code}</p>
+                        <p>Status: {activity.Status}</p>
+                        <p>Remarks: {activity.Remarks}</p>
+                        <p>Start Time: {activity.Opening_time}</p>
+                        <p>End Time: {activity.Closing_time}</p>
+                        <p>Total Time: {activity.Total_hours}</p>
+                        <button onClick={this.Edit}>Edit</button>
+                        <button onClick={this.Next}>Next</button>
+                      </div>
                       :
-                      <p>this doesnt work</p>
+                      <div>
+                        not working
+                        {console.log(this.state.iterate)}
+                      </div>
+                      
                     }
                   </div>
              ); 
