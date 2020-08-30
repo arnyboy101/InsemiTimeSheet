@@ -12,8 +12,9 @@ import subMonths from 'date-fns/subMonths';
 import addMonths from 'date-fns/addMonths';
 import isSameDay from 'date-fns/isSameDay';
 import toDate from 'date-fns/toDate';
-import {Panel} from 'rsuite';
+import {Panel, Carousel} from 'rsuite';
 import 'rsuite/dist/styles/rsuite-default.css';
+import Cookies from 'js-cookie'
 
 function MyApp() {
  
@@ -31,7 +32,7 @@ function MyApp() {
 
 }
 
-
+let stopped = false;
 class Calendar extends Component{
   constructor(props) {
     super(props);
@@ -72,6 +73,13 @@ class Calendar extends Component{
       });
   }
  }
+
+
+
+  
+  
+  
+
 
  renderHeader() {
   const dateFormat = "MMMM yyyy";
@@ -181,14 +189,7 @@ handleRemarks = (event) => {
 
 handleEntrySumbit = (event) => {
   event.preventDefault();
-  if(confirm("You are about to submit the following data - \n" + 
-  this.state.temp_start_time +
-  " to " +
-  this.state.temp_end_time +
-  " \n Status - " +
-  this.state.temp_status +
-  " \n Remarks - " +
-  this.state.temp_remarks)){
+  
    this.setState(
       {
         start_time:this.state.temp_start_time,
@@ -197,8 +198,36 @@ handleEntrySumbit = (event) => {
         remarks:this.state.temp_remarks
       }
     )
+   stopped = true; 
 }
-}
+
+handleData = () =>
+{
+let data2 = {
+  employeeId:0,
+  Project_code:'abcde',
+  Date: '2020-08-09',
+  Opening_time:'19:47:00.000000',
+  Closing_time:'21:49:00.000000',
+  Total_hours:194900,
+  Status:'Underway',
+  Remarks:'this.state.remarks'
+};
+let csrftoken = Cookies.get('csrftoken');
+fetch('/timetracker/api/TimeTracker/allObjects/',{
+  method: 'POST',
+  headers:{'Content-type':'application/json','X-CSRFToken':csrftoken},
+  body:JSON.stringify(data2)
+}).then(response => {
+  if (response.status > 400) {
+    return this.setState(() => {
+      return { placeholder: "Something went wrong!" };
+    });
+  }
+  return response.json();
+})
+  }
+
 renderPane()
 {
   const dateFormat = "dd/MM/yyyy";
@@ -218,7 +247,9 @@ renderPane()
           <button onClick={this.idSearch}>Submit!</button>
         </div>
       <Panel header="Activity Report" collapsible shaded>
+
         <div>
+        <Carousel>
         {(this.state.data != null)?
         
         this.state.data.map(activity => {
@@ -228,10 +259,10 @@ renderPane()
           
           return(
                    <div className='Activites' key={activity.id}>
-                      {((date1(activity.created_at).getMonth() == this.state.selected_Date.getMonth()) && 
-                      (date1(activity.created_at).getDate() == this.state.selected_Date.getDate())&&
-                      (date1(activity.created_at).getFullYear() == this.state.selected_Date.getFullYear()) &&
-                      (this.state.employee_id==activity.employeeId))? 
+                      {((date1(activity.Date).getMonth() == this.state.selected_Date.getMonth()) && 
+                      (date1(activity.Date).getDate() == this.state.selected_Date.getDate())&&
+                      (date1(activity.Date).getFullYear() == this.state.selected_Date.getFullYear()) &&
+                      (this.state.employee_id===activity.employeeId))? 
                       <p>{activity.Project} -  <br/> {activity.AddComments} </p>:<p></p>}  
                     
                   </div>
@@ -247,6 +278,7 @@ renderPane()
           </div>
       
       }
+      </Carousel>
       </div>
         </Panel>
       </div>
@@ -254,6 +286,7 @@ renderPane()
     <Panel header="Entry" collapsible shaded>
       <form onSubmit={this.handleEntrySumbit}>
       <table>
+      <thead>
       <tr>
         <th>Project</th>
         <th>Starting Time</th>
@@ -262,35 +295,11 @@ renderPane()
         <th>Status</th>
         <th>Remarks</th>
       </tr> 
+      </thead>
+      <tbody>
       <tr>
       <td>
-      {
-      (this.state.choices!=null)?
-      this.state.choices.map(choiceList => {
-      //Stores tthe choices in local variable
-        let choices1 = choiceList.choices;
-        //Only runs if choices are fetched
-        if (choices1!=null)
-        {
-            //Splits words into an array and removes the '[]'
-            choices1 = choices1.slice(1,-1).split(",");
-            const items = []
-            //iterates through choices1 and stores each choice as a key-value pair within an option
-            for (const [index, value] of choices1.entries()) {
-              items.push(<option key={index} value={value}>{value}</option>);
-            }
-            return (
-                    <div className="options">
-                        <select className="DropDownBox" onChange={this.HandleDropDown}>
-                        {items}
-                        </select>
-                    </div>
-                )
-        }
-      })
-      :
-      <div></div>
-    }
+      <input type="text"></input>
       </td>
       <td><input type="time" id="Start Time" onChange={this.handleStartTime}/></td>
       <td><input type="time" id="End Time" onChange={this.handleEndTime}/></td>
@@ -305,12 +314,27 @@ renderPane()
       <tr>
       <td><input type="submit"></input></td>
       </tr>
+      </tbody>
       </table>
       </form>
     </Panel>
   </div>
-    {this.state.start_time}
-    {this.state.end_time}
+  {(stopped?
+    <div className = 'SubConfirmation'>
+    <p> 
+      You are about to submit the following data - <br/> 
+      {this.state.start_time} <br/> 
+      to {this.state.end_time} <br/>
+      Status - <br/> 
+      {this.state.status} <br/> 
+      Remarks - <br/>
+      {this.state.remarks}
+    </p> 
+    <button onClick={this.handleData}>Send to Database!</button>
+    </div>
+    :
+    <div></div>
+    )}
     </div>
   );
 }
