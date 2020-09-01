@@ -192,8 +192,8 @@ handleEntrySumbit = (event) => {
   
    this.setState(
       {
-        start_time:this.state.temp_start_time,
-        end_time:this.state.temp_end_time,
+        start_time:this.state.temp_start_time + ':00.000000',
+        end_time:this.state.temp_end_time+ ':00.000000',
         status:this.state.temp_status,
         remarks:this.state.temp_remarks
       }
