@@ -12,7 +12,10 @@ import subMonths from 'date-fns/subMonths';
 import addMonths from 'date-fns/addMonths';
 import isSameDay from 'date-fns/isSameDay';
 import toDate from 'date-fns/toDate';
-import {Panel, Carousel} from 'rsuite';
+import {Panel} from 'rsuite';
+import makeCarousel from 'react-reveal/makeCarousel';
+import Slide from 'react-reveal/Slide';
+import styled, { css } from 'styled-components';
 import 'rsuite/dist/styles/rsuite-default.css';
 
 //let iterate = true;
@@ -28,6 +31,18 @@ function MyApp() {
     </div>
   );
 }
+
+const Container = styled.div`
+  border: 1px solid red;
+  position: relative;
+  overflow: hidden;
+  width: 300px;
+  height: 150px;
+`;
+const CarouselUI = ({ children }) => <Container>{children}</Container>;
+const Carousel = makeCarousel(CarouselUI);
+
+
 class Calendar extends Component{
   constructor(props) {
     super(props);
@@ -161,36 +176,48 @@ renderPane()
         </div>
       <Panel header="Activity Report" collapsible shaded>
 
-        
+      <Carousel defaultWait={1000} /*wait for 1000 milliseconds*/ >
         {this.state.data!=null ?
         this.state.data.map(activity => {
           let date1 = (dateapi) => (new Date(dateapi))
           return(
+                
+
+
                  <div className='Activites'>
+                  <Slide right>
                     {
+                      
                       ((date1(activity.Date).getMonth() == this.state.selected_Date.getMonth()) && 
                       (date1(activity.Date).getDate() == this.state.selected_Date.getDate()) &&
                       (date1(activity.Date).getFullYear() == this.state.selected_Date.getFullYear()) &&
-                      (this.state.employee_id==activity.employeeId)  && (this.state.iterate)) ?
+                      (this.state.employee_id==activity.employeeId))?
                       <div>
-                        {this.makeFalse}
+                      
+                      <div>
+                      
                         <p>Project Code: {activity.Project_code}</p>
                         <p>Status: {activity.Status}</p>
                         <p>Remarks: {activity.Remarks}</p>
                         <p>Start Time: {activity.Opening_time}</p>
                         <p>End Time: {activity.Closing_time}</p>
                         <p>Total Time: {activity.Total_hours}</p>
-                        <button onClick={this.Edit}>Edit</button>
-                        <button onClick={this.Next}>Next</button>
+                      
+                      
                       </div>
+                      
+                      </div>
+                      
                       :
                       <div></div>
                       
                     }
+                    </Slide>
                   </div>
              ); 
           }) : <div></div>
         }
+        </Carousel>
         </Panel>
       </div>
     </div>
