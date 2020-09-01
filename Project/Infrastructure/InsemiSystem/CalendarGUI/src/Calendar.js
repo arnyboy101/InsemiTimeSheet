@@ -204,14 +204,14 @@ handleEntrySumbit = (event) => {
 handleData = () =>
 {
 let data2 = {
-  employeeId:0,
-  Project_code:'abcde',
-  Date: '2020-08-09',
-  Opening_time:'19:47:00.000000',
-  Closing_time:'21:49:00.000000',
-  Total_hours:194900,
-  Status:'Underway',
-  Remarks:'this.state.remarks'
+  employeeId:this.state.employee_id,
+  Project_code:'0000',
+  Date:  this.state.selected_Date,
+  Opening_time:this.state.start_time,
+  Closing_time:this.state.end_time,
+  Total_hours:10,
+  Status:this.state.status,
+  Remarks:this.state.remarks
 };
 let csrftoken = Cookies.get('csrftoken');
 fetch('/timetracker/api/TimeTracker/allObjects/',{
