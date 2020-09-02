@@ -203,10 +203,12 @@ handleEntrySumbit = (event) => {
 
 handleData = () =>
 {
+  const dateFormat = "yyyy-MM-dd";
+  const formattedDate = format(this.state.selected_Date, dateFormat);
 let data2 = {
   employeeId:this.state.employee_id,
   Project_code:'0000',
-  Date:  this.state.selected_Date,
+  Date:formattedDate,
   Opening_time:this.state.start_time,
   Closing_time:this.state.end_time,
   Total_hours:10,
