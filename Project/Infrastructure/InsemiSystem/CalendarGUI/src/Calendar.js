@@ -13,9 +13,8 @@ import addMonths from 'date-fns/addMonths';
 import isSameDay from 'date-fns/isSameDay';
 import toDate from 'date-fns/toDate';
 import {Panel} from 'rsuite';
-import makeCarousel from 'react-reveal/makeCarousel';
-import Slide from 'react-reveal/Slide';
-import styled, { css } from 'styled-components';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 import 'rsuite/dist/styles/rsuite-default.css';
 
 //let iterate = true;
@@ -32,17 +31,9 @@ function MyApp() {
   );
 }
 
-const Container = styled.div`
-  border: 1px solid red;
-  position: relative;
-  overflow: hidden;
-  width: 300px;
-  height: 150px;
-`;
-const CarouselUI = ({ children }) => <Container>{children}</Container>;
-const Carousel = makeCarousel(CarouselUI);
 
 
+let edit = false;
 class Calendar extends Component{
   constructor(props) {
     super(props);
@@ -54,8 +45,8 @@ class Calendar extends Component{
       employee_id: -1,
       temp_search:0,
       logged_in: localStorage.getItem('token')? true:false,
-      edit:false,
-      iterate:true
+      iterate:true,
+      editor:0
     };
  }
  componentDidMount(){
@@ -151,12 +142,15 @@ idStore = (event) => {
   this.setState({temp_search:event.target.value})
 }
 
-Edit = () => {
-  this.setState({edit:true})
+Edit = (event) => {
+  event.preventDefault();
+  this.setState({
+    editor:event.target.getAttribute('c-key')          
+})
+  edit=true;
+  
 }
-Next = () => {
-  this.setState({iterate:true})
-}
+
 makeFalse = () => {
   this.setState({iterate:false})
 }
@@ -176,48 +170,53 @@ renderPane()
         </div>
       <Panel header="Activity Report" collapsible shaded>
 
-      <Carousel defaultWait={1000} /*wait for 1000 milliseconds*/ >
+    
+      
         {this.state.data!=null ?
         this.state.data.map(activity => {
           let date1 = (dateapi) => (new Date(dateapi))
           return(
-                
-
-
-                 <div className='Activites'>
-                  <Slide right>
-                    {
-                      
-                      ((date1(activity.Date).getMonth() == this.state.selected_Date.getMonth()) && 
+            <div className = "Activities">
+                     { ((date1(activity.Date).getMonth() == this.state.selected_Date.getMonth()) && 
                       (date1(activity.Date).getDate() == this.state.selected_Date.getDate()) &&
                       (date1(activity.Date).getFullYear() == this.state.selected_Date.getFullYear()) &&
                       (this.state.employee_id==activity.employeeId))?
-                      <div>
-                      
-                      <div>
-                      
-                        <p>Project Code: {activity.Project_code}</p>
-                        <p>Status: {activity.Status}</p>
-                        <p>Remarks: {activity.Remarks}</p>
-                        <p>Start Time: {activity.Opening_time}</p>
-                        <p>End Time: {activity.Closing_time}</p>
-                        <p>Total Time: {activity.Total_hours}</p>
                       
                       
+                      <div key={activity.id}>
+                        <p>Project Code: {activity.Project_code} <br/>
+                        Status: {activity.Status} <br/>
+                        Remarks: {activity.Remarks} <br/>
+                        Start Time: {activity.Opening_time} <br/>
+                        End Time: {activity.Closing_time} <br/>
+                        Total Time: {activity.Total_hours}</p>
+                        <br/>
+                        <button c-key = {activity.id} onClick={this.Edit}>Edit</button>
+                        <br/> 
+                        <div>
+                          {
+                            (edit && (this.state.editor == activity.id))? 
+                            <div>
+                              <br/>
+                              <p>Editor Goes Here!</p>
+                              <br/>
+                            </div>
+                            :
+                            <div/>
+                          }   
+                        </div>              
                       </div>
-                      
-                      </div>
-                      
                       :
-                      <div></div>
+                      <div/>
+                     }
+             </div>
                       
-                    }
-                    </Slide>
-                  </div>
              ); 
           }) : <div></div>
         }
-        </Carousel>
+        
+      
+
         </Panel>
       </div>
     </div>
