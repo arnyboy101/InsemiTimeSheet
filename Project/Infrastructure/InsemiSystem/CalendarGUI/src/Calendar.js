@@ -263,7 +263,7 @@ renderPane()
                       (date1(activity.Date).getDate() == this.state.selected_Date.getDate())&&
                       (date1(activity.Date).getFullYear() == this.state.selected_Date.getFullYear()) &&
                       (this.state.employee_id===activity.employeeId))? 
-                      <p>{activity.Project} -  <br/> {activity.AddComments} </p>:<p></p>}  
+                      <p>{activity.Project} - <br/> {activity.AddComments} </p>:<p></p>}  
                     
                   </div>
                   
@@ -329,7 +329,9 @@ renderPane()
       {this.state.status} <br/> 
       Remarks - <br/>
       {this.state.remarks}
-    </p> 
+      Date : {this.state.selected_Date}
+      Month : {this.state.current_Month}
+    </p>
     <button onClick={this.handleData}>Send to Database!</button>
     </div>
     :
