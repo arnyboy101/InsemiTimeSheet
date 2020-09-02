@@ -1,8 +1,6 @@
 from django.db import models
 from django_mysql.models import ListCharField
-
 # Create your models here.
-
 status_choices = ["WFH","WFO","Earned Leave","Sick Leave","Maternity Leave","Paternity Leave","Emergency Leave"]
 class Activity(models.Model):
     employeeId = models.IntegerField(default=None)
@@ -13,8 +11,6 @@ class Activity(models.Model):
     Total_hours = models.IntegerField(default=None)
     Status = models.CharField(max_length = 128, default=None)
     Remarks = models.CharField(max_length = 256, default=None)
-    
-
 class Choices(models.Model):
     employeeId = models.IntegerField(default=None)
     Project_No = models.IntegerField(default=None)
@@ -23,5 +19,3 @@ class Choices(models.Model):
     Manager = models.CharField(max_length = 256, default=None)
     Customer_name = models.CharField(max_length = 256, default=None)
     Vendor_name = models.CharField(max_length = 256, default=None)
-
-
