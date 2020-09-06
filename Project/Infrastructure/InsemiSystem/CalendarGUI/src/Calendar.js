@@ -38,6 +38,7 @@ function MyApp() {
 
 
 let edit = false;
+let stopped = false;
 class Calendar extends Component{
   constructor(props) {
     super(props);
@@ -247,6 +248,7 @@ fetch('/timetracker/api/TimeTracker/allObjects/',{
   }
   return response.json();
 })
+stopped = false;
   }
 
 renderPane()
@@ -299,7 +301,7 @@ renderPane()
                             (edit && (this.state.editor == activity.id))? 
                             <div>
                               <br/>
-                              <p>Editor Goes Here!</p>
+                              {this.entryForm()}
                               <br/>
                             </div>
                             :
@@ -322,39 +324,7 @@ renderPane()
       </div>
       <div>
     <Panel header="Entry" collapsible shaded>
-      <form onSubmit={this.handleEntrySumbit}>
-      <table>
-      <thead>
-      <tr>
-        <th>Project</th>
-        <th>Starting Time</th>
-        <th>Ending Time</th>
-
-        <th>Status</th>
-        <th>Remarks</th>
-      </tr> 
-      </thead>
-      <tbody>
-      <tr>
-      <td>
-      <input type="text"></input>
-      </td>
-      <td><input type="time" id="Start Time" onChange={this.handleStartTime}/></td>
-      <td><input type="time" id="End Time" onChange={this.handleEndTime}/></td>
-      
-      <td><select className="Status" onChange={this.handleStatus}>
-            <option key = "1" value="WFO">Work From Office</option>
-            <option key = "2" value="WFH">Work From Home</option>
-        </select></td>
-      <td><textarea id = "Remarks" onChange={this.handleRemarks}></textarea></td>
-      
-      </tr>
-      <tr>
-      <td><input type="submit"></input></td>
-      </tr>
-      </tbody>
-      </table>
-      </form>
+        {this.entryForm()}
     </Panel>
   </div>
   {(stopped?
@@ -367,8 +337,6 @@ renderPane()
       {this.state.status} <br/> 
       Remarks - <br/>
       {this.state.remarks}
-      Date : {this.state.selected_Date}
-      Month : {this.state.current_Month}
     </p>
     <button onClick={this.handleData}>Send to Database!</button>
     </div>
@@ -437,6 +405,43 @@ prevMonth = () => {
   });
 };
 
+entryForm = () => {
+  return(
+  <form onSubmit={this.handleEntrySumbit}>
+  <table>
+  <thead>
+  <tr>
+    <th>Project</th>
+    <th>Starting Time</th>
+    <th>Ending Time</th>
+
+    <th>Status</th>
+    <th>Remarks</th>
+  </tr> 
+  </thead>
+  <tbody>
+  <tr>
+  <td>
+  <input type="text"></input>
+  </td>
+  <td><input type="time" id="Start Time" onChange={this.handleStartTime}/></td>
+  <td><input type="time" id="End Time" onChange={this.handleEndTime}/></td>
+  
+  <td><select className="Status" onChange={this.handleStatus}>
+        <option key = "1" value="WFO">Work From Office</option>
+        <option key = "2" value="WFH">Work From Home</option>
+    </select></td>
+  <td><textarea id = "Remarks" onChange={this.handleRemarks}></textarea></td>
+  
+  </tr>
+  <tr>
+  <td><input type="submit"></input></td>
+  </tr>
+  </tbody>
+  </table>
+  </form>
+  );
+}
 
 render() {
   return (
