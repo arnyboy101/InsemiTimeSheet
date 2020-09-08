@@ -1,10 +1,12 @@
-Hi!
+# Insemi TimeSheet
 
-# INSTRUCTIONS FOR INSTALLATION
+Welcome to **Insemi TimeSheet**! This is an employee management solution for any corporate structure. 
+
+## INSTRUCTIONS FOR INSTALLATION
 
 Insemi TImeSheet is buit on a combination of Python's Django library to handle the full stack web development side and the JavaScript React.js library for the frontend development side. 
 
-## Step One: Downloading the Code Base
+### Step One: Downloading the Code Base
 
 [GitHub Repository for Insemi TimeSheet](https://github.com/arnyboy101/InsemiTimeSheet)
 
@@ -14,7 +16,7 @@ If you regularly use, **GitHub Desktop** then choose the Open with GitHub Deskto
 
 If you do not use GitHub Desktop or are not comfortable with using that option, you can Download ZIP. Extract the compressed zip folder using your preferred decompression software. 
 
-## Step Two: Programming Instructions
+### Step Two: Programming Instructions
 
 Get Microsoft's Visual Studio Code editor [here](https://code.visualstudio.com/)
 
@@ -60,11 +62,28 @@ pip install django-cors-headers
 pip install djangorestframework-jwt
 ```
 
+**Here are the various facets of our program and where it can be improved**
 
+## Login and Registration
 
-Login
+### Registration
+Can be found at http://127.0.0.1:8000/users/register/
 
+![Registration Screen](./Planning/4.jpg)
+ 
+ - Once registered, another user cannot use the same username or Employee ID
+ - *Improvements* - Front-end needs to look more polished and approachable
 
+ ### Login
+
+ If not directly redirected from the registration page, you can directly login from http://127.0.0.1:8000/auth/
+
+ ![Login](./Planning/5.jpg)
+
+ The username will be authenticated and you will be redirected to the next navigation screen.
+
+ ![Navigation](./Planning/6.jpg)
+ 
 Home Screen
 
 
