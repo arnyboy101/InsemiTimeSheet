@@ -1,4 +1,4 @@
-# Dependencies
+# Dependencies (every sub-app has its own node_modules - all ignored)
 node_modules/
 
 # Python
