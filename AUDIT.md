@@ -168,6 +168,8 @@ The only GitHub Action is a PR auto-labeler using an outdated action (`actions/l
 - No `__str__` methods on any model
 - No `Meta` classes (no ordering, indexes, or database constraints)
 - No model-level validation or `clean()` methods
+- `UserModel.UserDef.previous_login` has no `null=True` or `default` — causes migration errors
+- Unused import: `ListCharField` from `django_mysql` imported but never used in `Time/models.py`
 
 ### Django Views
 
@@ -176,6 +178,9 @@ The only GitHub Action is a PR auto-labeler using an outdated action (`actions/l
 - No pagination
 - No filtering or search
 - No throttling
+- **Runtime crash**: `UserModel/views.py` `check` view calls `authenticate()` without importing it — raises `NameError`
+- Dead code: unreachable `return redirect('/home/')` after earlier returns in `UserModel/views.py`
+- User creation endpoint (`UserList`) also uses `AllowAny` — anyone can create user accounts
 
 ### Django Settings
 
@@ -188,8 +193,16 @@ The only GitHub Action is a PR auto-labeler using an outdated action (`actions/l
 - No error boundaries
 - No code splitting / lazy loading (`React.lazy`, `Suspense`)
 - No centralized API client — raw `fetch()` scattered throughout
-- No error handling patterns
+- No error handling patterns on `fetch()` calls
 - Direct `localStorage` manipulation for auth tokens
+- **Race condition**: `AuthGUI/App.js` `handle_signup` calls `window.location.href = "/home/"` before the fetch promise resolves
+- `handle_login` does not redirect after successful login
+- **Base64-encoded images** embedded directly in JSX in `HomeScreenGUI` — massive inline data URLs
+- Module-level mutable variables (`edit`, `stopped`) in `CalendarGUI/Calendar.js` instead of React state — causes rendering bugs
+- `console.log` statements left in render methods
+- Placeholder/test data in production code (`TTForm.js` dropdown has "Let's", "Figure", "This Out")
+- `ExportGUI` is a UI stub — export form has no `onSubmit` handler; no actual export functionality implemented
+- External image loaded via HTTP (not HTTPS) in HomeScreenGUI
 
 ---
 
