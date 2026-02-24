@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee</title>
+</head>
+<body>
+<div>
+    <h1>Welcome Employee - {{NAME}}! </h1>
+</div>
+<div>
+    <form>
+        <button>Enter TimeSheets</button>
+
+    </form>
+</div>
+<p></p>
+<div>
+    <form action="/P/logout/"  method = 'post'>
+        {% csrf_token %}
+        <button > Logout</button>
+    </form>
+</div>
+</body>
+</html>
