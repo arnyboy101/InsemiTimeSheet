@@ -1,30 +1,58 @@
-Change Made to InsemiSystem:
-  -Project/Infrastructure/InsemiSystem/*
+"Change Made to InsemiSystem":
+  - changed-files:
+      - any-glob-to-any-file: "Project/Infrastructure/InsemiSystem/*"
 
-#Add   
-Change Made to TimeTracker:
-  -Project/Infrastructure/InsemiSystem/TimeTracker/**/*
- 
-Change Made to TimeTrackerGUI:
-  -Project/Infrastructure/InsemiSystem/TimeTrackerGUI/**/*
+"Change Made to TimeTracker":
+  - changed-files:
+      - any-glob-to-any-file: "Project/Infrastructure/InsemiSystem/TimeTracker/**/*"
 
-Change Made to CalendarGUI:
-  -Project/Infrastructure/InsemiSystem/CalendarGUI/**/*
- 
-Change Made to ExportGUI:
-  -Project/Infrastructure/InsemiSystem/ExportGUI/**/*
- 
-Change Made to HomeScreenGUI:
-  -Project/Infrastructure/InsemiSystem/HomeScreenGUI/**/*
+"Change Made to TimeTrackerGUI":
+  - changed-files:
+      - any-glob-to-any-file: "Project/Infrastructure/InsemiSystem/TimeTrackerGUI/**/*"
 
-Change Made to Login:
-  -Project/Infrastructure/InsemiSystem/Login/**/*
-  
-Change Made to LoginGUI:
-  -Project/Infrastructure/InsemiSystem/LoginGUI/**/*
- 
-Change Made to Django InsemiSystem Configuration:
-  -Project/Infrastructure/InsemiSystem/InsemiSystem/**/*
-  
-Coverage Reports Updated:
-  -Project/Infrastructure/InsemiSystem/htmlcov/**/*
+"Change Made to CalendarGUI":
+  - changed-files:
+      - any-glob-to-any-file: "Project/Infrastructure/InsemiSystem/CalendarGUI/**/*"
+
+"Change Made to ExportGUI":
+  - changed-files:
+      - any-glob-to-any-file: "Project/Infrastructure/InsemiSystem/ExportGUI/**/*"
+
+"Change Made to HomeScreenGUI":
+  - changed-files:
+      - any-glob-to-any-file: "Project/Infrastructure/InsemiSystem/HomeScreenGUI/**/*"
+
+"Change Made to Login":
+  - changed-files:
+      - any-glob-to-any-file: "Project/Infrastructure/InsemiSystem/Login/**/*"
+
+"Change Made to LoginGUI":
+  - changed-files:
+      - any-glob-to-any-file: "Project/Infrastructure/InsemiSystem/LoginGUI/**/*"
+
+"Change Made to Django InsemiSystem Configuration":
+  - changed-files:
+      - any-glob-to-any-file: "Project/Infrastructure/InsemiSystem/InsemiSystem/**/*"
+
+"Change Made to AuthGUI":
+  - changed-files:
+      - any-glob-to-any-file: "Project/Infrastructure/InsemiSystem/AuthGUI/**/*"
+
+"Change Made to UserModel":
+  - changed-files:
+      - any-glob-to-any-file: "Project/Infrastructure/InsemiSystem/UserModel/**/*"
+
+"infrastructure":
+  - changed-files:
+      - any-glob-to-any-file:
+          - "Dockerfile"
+          - "docker-compose.yml"
+          - ".github/**/*"
+          - "requirements.txt"
+          - "pyproject.toml"
+
+"documentation":
+  - changed-files:
+      - any-glob-to-any-file:
+          - "*.md"
+          - "docs/**/*"
