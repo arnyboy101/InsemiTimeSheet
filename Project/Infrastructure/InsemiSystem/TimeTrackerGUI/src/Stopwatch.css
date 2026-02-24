@@ -1,0 +1,54 @@
+
+.body {
+    font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight',
+                 'Helvetica Neueu', Helvetica, Arial, sans-serif;
+    margin: 0;
+    background: linear-gradient(to bottom right,#1a8fff,#0dd4e2);
+  }
+
+  
+  .stopwatch { text-align: center;
+    font-family: "Lucida Console", Courier, monospace;
+    background: linear-gradient(to bottom right,#1a8fff,#0dd4e2); }
+
+
+  .stopwatch-timer {
+    font-size: 76px;
+    font-weight: 100;
+    line-height: 160px;
+    
+    margin: 0;
+    
+    border: linear-gradient(to bottom right,#1a8fff,#0dd4e2);
+    border-width: 1px 0;
+  
+  }
+  
+
+  .btn {
+    font-family: inherit;
+    font-size: 36px;
+    
+    display: inline-block;
+    
+    width: 144px;
+    height: 144px;
+    margin: 24px;
+    padding: 0;
+    
+    cursor: pointer;
+    letter-spacing: 1px;
+    
+    border: 30px;
+    border-color: aquamarine;
+    border-radius: 50%;
+    outline: none;
+    background:linear-gradient(to bottom right,#1a8fff,#0dd4e2);
+  }
+  
+  
+  
+  .start-btn { color:white }
+  .stop-btn  { color: black }
+  .reset-btn {color: yellow}
+  
