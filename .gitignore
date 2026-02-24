@@ -1,5 +1,6 @@
 # Dependencies (every sub-app has its own node_modules - all ignored)
 node_modules/
+package-lock.json
 
 # Python
 *.pyc
@@ -9,23 +10,48 @@ __pycache__/
 .venv/
 venv/
 env/
+*.pyo
 
 # Testing / coverage
 .coverage
+.coverage.*
 .pytest_cache/
 htmlcov/
 
 # OS
 .DS_Store
 Thumbs.db
+Desktop.ini
 
 # IDE
 .idea/
 .vscode/
 *.swp
 *.swo
+*.sublime-project
+*.sublime-workspace
 
 # Build / dist
 dist/
 build/
 *.log
+
+# Django
+*.sqlite3
+db.sqlite3
+staticfiles/
+media/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Webpack generated bundles (rebuild with npm run dev/build)
+**/static/*/main.js
+
+# Large binary files that shouldn't be versioned
+Planning/*.pptx
+Planning/*.xlsx
+Planning/*.docx
+Planning/*.jpg

@@ -1,0 +1,46 @@
+[project]
+name = "insemi-timesheet"
+version = "0.1.0"
+description = "Employee time tracking and HR management system"
+requires-python = ">=3.12"
+license = {text = "Apache-2.0"}
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+src = ["Project/Infrastructure/InsemiSystem"]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "S",   # flake8-bandit (security)
+    "UP",  # pyupgrade
+]
+ignore = [
+    "E501",  # line too long (handled by formatter)
+]
+
+[tool.ruff.lint.isort]
+known-first-party = [
+    "InsemiSystem",
+    "AuthGUI",
+    "CalendarGUI",
+    "ExportGUI",
+    "HomeScreenGUI",
+    "TimeTrackerGUI",
+    "UserFunctionsGUI",
+    "Time",
+    "UserModel",
+    "Hierarchy",
+    "P",
+]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "InsemiSystem.settings"
+pythonpath = ["Project/Infrastructure/InsemiSystem"]
+testpaths = ["Project/Infrastructure/InsemiSystem"]
+python_files = ["tests.py", "test_*.py"]
